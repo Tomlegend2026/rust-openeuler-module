@@ -1,0 +1,52 @@
+# Build artifacts
+target/
+build/
+*.o
+*.ko
+*.mod
+*.mod.c
+*.a
+*.so
+*.rlib
+*.rmeta
+.*.cmd
+Module.symvers
+modules.order
+.tmp_versions/
+
+# VM, archives and large media
+*.iso
+*.qcow2
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.ova
+*.tar
+*.tar.gz
+*.tar.xz
+*.zip
+*.mp4
+*.mkv
+*.mov
+
+# Local configuration / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+.ssh/
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+~$*
+*.tmp
+# Logs and screenshots under evidence/ are intentionally tracked.
+
+# Host test artifacts
+__pycache__/
+*.pyc
+*.exe

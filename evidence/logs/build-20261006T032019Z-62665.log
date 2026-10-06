@@ -1,0 +1,86 @@
+2026年 10月 06日 星期二 03:20:19 UTC
+Kernel source: 6e0c18da64fd9919a51f8f2216a371503a5e2763
+Build release: 6.6.0-team2-rust+
+Running release: 6.6.0-28.0.0.34.oe2403.x86_64
+Checking Rust requirements...
+make: 进入目录“/home/team2/os-lab/kernel”
+Rust is available!
+make: 离开目录“/home/team2/os-lab/kernel”
+PASS: source/build prerequisites. This does not prove runtime loadability.
+fa5d20c01f6f5887aa502f81a3ef4600cca2506b7cf7475df591a0d980c523f4  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.rs
+2edbe7757a155813ff6382899c7b7f4061b4a3a05122c00935f75e9097b71499  /home/team2/os-lab/rust-openeuler-module/module/statistics.rs
+make: 进入目录“/home/team2/os-lab/rust-openeuler-module/module”
+make -C "/home/team2/os-lab/kernel" M="/home/team2/os-lab/rust-openeuler-module/module" LLVM=1 modules
+make[1]: 进入目录“/home/team2/os-lab/kernel”
+  RUSTC [M] /home/team2/os-lab/rust-openeuler-module/module/rust_team2.o
+error: unreachable `pub` item
+ --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:5:1
+  |
+5 | pub struct Statistics {
+  | ---^^^^^^^^^^^^^^^^^^
+  | |
+  | help: consider restricting its visibility: `pub(crate)`
+  |
+  = help: or consider exporting it for use by other crates
+  = note: requested on the command line with `-D unreachable-pub`
+
+error: unreachable `pub` field
+ --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:6:5
+  |
+6 |     pub count: usize,
+  |     ---^^^^^^^^^^^^^
+  |     |
+  |     help: consider restricting its visibility: `pub(crate)`
+
+error: unreachable `pub` field
+ --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:7:5
+  |
+7 |     pub sum: u64,
+  |     ---^^^^^^^^^
+  |     |
+  |     help: consider restricting its visibility: `pub(crate)`
+
+error: unreachable `pub` field
+ --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:8:5
+  |
+8 |     pub min: u64,
+  |     ---^^^^^^^^^
+  |     |
+  |     help: consider restricting its visibility: `pub(crate)`
+
+error: unreachable `pub` field
+ --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:9:5
+  |
+9 |     pub max: u64,
+  |     ---^^^^^^^^^
+  |     |
+  |     help: consider restricting its visibility: `pub(crate)`
+
+error: unreachable `pub` item
+  --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:13:1
+   |
+13 | pub enum StatisticsError {
+   | ---^^^^^^^^^^^^^^^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+
+error: unreachable `pub` item
+  --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:18:1
+   |
+18 | pub fn summarize(values: &[u64]) -> Result<Statistics, StatisticsError> {
+   | ---^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   | |
+   | help: consider restricting its visibility: `pub(crate)`
+   |
+   = help: or consider exporting it for use by other crates
+
+error: aborting due to 7 previous errors
+
+make[3]: *** [scripts/Makefile.build:292：/home/team2/os-lab/rust-openeuler-module/module/rust_team2.o] 错误 1
+make[2]: *** [/home/team2/os-lab/kernel/Makefile:1927：/home/team2/os-lab/rust-openeuler-module/module] 错误 2
+make[1]: *** [Makefile:234：__sub-make] 错误 2
+make[1]: 离开目录“/home/team2/os-lab/kernel”
+make: *** [Makefile:7：all] 错误 2
+make: 离开目录“/home/team2/os-lab/rust-openeuler-module/module”

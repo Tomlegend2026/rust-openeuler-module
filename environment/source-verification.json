@@ -1,0 +1,44 @@
+{
+  "checked_on": "2026-09-29",
+  "repository": "https://github.com/openeuler-mirror/kernel.git",
+  "branch": "openEuler-24.03_LTS",
+  "commit": "6e0c18da64fd9919a51f8f2216a371503a5e2763",
+  "status": "source inspected; build and boot not tested",
+  "files": [
+    {
+      "path": "samples/rust/rust_minimal.rs",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/samples/rust/rust_minimal.rs",
+      "sha256": "f316827c3b29932d2e38eec9b79c09322ce0536285644c2ed86856cc46c78c3b"
+    },
+    {
+      "path": "scripts/min-tool-version.sh",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/scripts/min-tool-version.sh",
+      "sha256": "e61b133f586903b1d4e1ae986368a8efe2aff9c986d9a01e1a230ba095a6b604"
+    },
+    {
+      "path": "init/Kconfig",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/init/Kconfig",
+      "sha256": "5263adfc65225ac30cea19fd232d8657d8efb2da8047c80f2a50a9f010b011db"
+    },
+    {
+      "path": "Makefile",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/Makefile",
+      "sha256": "922a45bf15bd75ba13ebd5cfb9acefd394bac8a7c0db15cd6dbdf05309ea2aa6"
+    },
+    {
+      "path": "rust/kernel/lib.rs",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/rust/kernel/lib.rs",
+      "sha256": "50d809daa989cc47b65b16b49e834b7572af262284bf380a7fe64397066d310b"
+    },
+    {
+      "path": "scripts/Makefile.build",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/scripts/Makefile.build",
+      "sha256": "88bf8086075c59e3000092169ad2b5de942a276d024d637236515d5ad683b22e"
+    },
+    {
+      "path": "rust/Makefile",
+      "url": "https://raw.githubusercontent.com/openeuler-mirror/kernel/6e0c18da64fd9919a51f8f2216a371503a5e2763/rust/Makefile",
+      "sha256": "43f10c3f9a6ffa3da10fa127f331b42e89577cc20ccd7ac657b0456a1517f24b"
+    }
+  ]
+}

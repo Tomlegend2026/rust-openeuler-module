@@ -1,0 +1,93 @@
+Module                  Size  Used by
+vsock_loopback         12288  0
+vmw_vsock_virtio_transport_common    65536  1 vsock_loopback
+vmw_vsock_vmci_transport    45056  1
+vsock                  65536  5 vmw_vsock_virtio_transport_common,vsock_loopback,vmw_vsock_vmci_transport
+nft_fib_inet           12288  1
+nft_fib_ipv4           12288  1 nft_fib_inet
+nft_fib_ipv6           12288  1 nft_fib_inet
+nft_fib                12288  3 nft_fib_ipv6,nft_fib_ipv4,nft_fib_inet
+nft_reject_inet        12288  6
+nf_reject_ipv4         16384  1 nft_reject_inet
+nf_reject_ipv6         20480  1 nft_reject_inet
+nft_reject             12288  1 nft_reject_inet
+nft_ct                 24576  11
+nft_chain_nat          12288  3
+nf_tables             389120  206 nft_ct,nft_reject_inet,nft_fib_ipv6,nft_fib_ipv4,nft_chain_nat,nft_reject,nft_fib,nft_fib_inet
+ebtable_nat            12288  0
+ebtable_broute         12288  0
+ip6table_nat           12288  0
+ip6table_mangle        12288  0
+ip6table_raw           12288  0
+ip6table_security      12288  0
+iptable_nat            12288  0
+nf_nat                 65536  3 ip6table_nat,nft_chain_nat,iptable_nat
+nf_conntrack          217088  2 nf_nat,nft_ct
+nf_defrag_ipv6         24576  1 nf_conntrack
+nf_defrag_ipv4         12288  1 nf_conntrack
+libcrc32c              12288  3 nf_conntrack,nf_nat,nf_tables
+iptable_mangle         12288  0
+iptable_raw            12288  0
+iptable_security       12288  0
+rfkill                 40960  0
+ip_set                 69632  0
+nfnetlink              20480  3 nf_tables,ip_set
+ebtable_filter         12288  0
+ebtables               53248  3 ebtable_nat,ebtable_filter,ebtable_broute
+ip6table_filter        12288  0
+ip6_tables             36864  5 ip6table_filter,ip6table_raw,ip6table_nat,ip6table_mangle,ip6table_security
+iptable_filter         12288  0
+ip_tables              36864  5 iptable_filter,iptable_security,iptable_raw,iptable_nat,iptable_mangle
+intel_rapl_msr         20480  0
+intel_rapl_common      40960  1 intel_rapl_msr
+vmw_balloon            28672  0
+snd_ens1371            36864  0
+snd_ac97_codec        196608  1 snd_ens1371
+ac97_bus               12288  1 snd_ac97_codec
+pcspkr                 12288  0
+snd_rawmidi            57344  1 snd_ens1371
+snd_seq_device         16384  1 snd_rawmidi
+snd_pcm               192512  2 snd_ac97_codec,snd_ens1371
+vmwgfx                454656  1
+snd_timer              53248  1 snd_pcm
+snd                   155648  6 snd_seq_device,snd_timer,snd_ac97_codec,snd_pcm,snd_rawmidi,snd_ens1371
+soundcore              16384  1 snd
+drm_ttm_helper         12288  1 vmwgfx
+ttm                   106496  2 vmwgfx,drm_ttm_helper
+vmw_vmci              106496  2 vmw_balloon,vmw_vsock_vmci_transport
+drm_kms_helper        270336  3 vmwgfx
+i2c_piix4              32768  0
+joydev                 32768  0
+sg                     53248  0
+drm                   811008  6 vmwgfx,drm_kms_helper,drm_ttm_helper,ttm
+fuse                  221184  1
+ext4                 1163264  3
+mbcache                16384  1 ext4
+jbd2                  204800  1 ext4
+sd_mod                 94208  4
+sr_mod                 28672  0
+t10_pi                 20480  1 sd_mod
+cdrom                  86016  1 sr_mod
+crc64_rocksoft_generic    12288  1
+crc64_rocksoft         16384  1 t10_pi
+crc64                  16384  2 crc64_rocksoft,crc64_rocksoft_generic
+crct10dif_pclmul       12288  1
+crc32_pclmul           12288  0
+crc32c_intel           16384  7
+ata_generic            16384  0
+ghash_clmulni_intel    16384  0
+sha512_ssse3           45056  0
+ahci                   49152  0
+libahci                61440  1 ahci
+ata_piix               45056  0
+mptspi                 28672  4
+libata                471040  4 ata_piix,libahci,ahci,ata_generic
+scsi_transport_spi     45056  1 mptspi
+mptscsih               53248  1 mptspi
+mptbase               122880  2 mptspi,mptscsih
+e1000                 188416  0
+serio_raw              16384  0
+dm_mirror              28672  0
+dm_region_hash         28672  1 dm_mirror
+dm_log                 24576  2 dm_region_hash,dm_mirror
+dm_mod                225280  12 dm_log,dm_mirror

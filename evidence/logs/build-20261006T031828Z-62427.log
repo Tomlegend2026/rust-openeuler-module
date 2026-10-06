@@ -1,0 +1,2 @@
+2026年 10月 06日 星期二 03:18:28 UTC
+FAIL: Missing prepared build artifact: rust/libkernel.rlib; build the full kernel first.
