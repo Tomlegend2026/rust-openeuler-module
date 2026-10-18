@@ -1,0 +1,2 @@
+<6>[ 1562.210689] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1562.223233] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23

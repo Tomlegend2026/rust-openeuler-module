@@ -1,0 +1,21 @@
+<4>[ 1561.750273] rust_team2: loading out-of-tree module taints kernel.
+<6>[ 1561.759944] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.768570] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.785279] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.793258] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.806743] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.816043] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.838201] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.845318] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.865210] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.874853] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.894267] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.899918] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.912697] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.918991] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.932999] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.943135] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.961277] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.969170] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[ 1561.984185] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[ 1561.990165] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23

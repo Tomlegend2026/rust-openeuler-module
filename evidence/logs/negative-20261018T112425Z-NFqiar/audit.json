@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "duplicate_load_exit": 1,
+  "absent_unload_exit": 1,
+  "load_events": 1,
+  "unload_events": 1,
+  "final_module": "absent, verified through SSH",
+  "operator": "user, via SSH interactive sudo",
+  "auditor": "Codex"
+}
