@@ -1,0 +1,30 @@
+2026年 10月 18日 星期日 11:00:37 UTC
+Kernel source: 6e0c18da64fd9919a51f8f2216a371503a5e2763
+Build release: 6.6.0-team2-rust+
+Running release: 6.6.0-team2-rust+
+Checking Rust requirements...
+make: 进入目录“/home/team2/os-lab/kernel”
+Rust is available!
+make: 离开目录“/home/team2/os-lab/kernel”
+PASS: source/build prerequisites. This does not prove runtime loadability.
+fa5d20c01f6f5887aa502f81a3ef4600cca2506b7cf7475df591a0d980c523f4  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.rs
+c4a87a5327a527b602defb3f0dabaab5ab5317c0be33c16d777193d90e230fe2  /home/team2/os-lab/rust-openeuler-module/module/statistics.rs
+make: 进入目录“/home/team2/os-lab/rust-openeuler-module/module”
+make -C "/home/team2/os-lab/kernel" M="/home/team2/os-lab/rust-openeuler-module/module" LLVM=1 modules
+make[1]: 进入目录“/home/team2/os-lab/kernel”
+  RUSTC [M] /home/team2/os-lab/rust-openeuler-module/module/rust_team2.o
+  MODPOST /home/team2/os-lab/rust-openeuler-module/module/Module.symvers
+  LD [M]  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+make[1]: 离开目录“/home/team2/os-lab/kernel”
+make: 离开目录“/home/team2/os-lab/rust-openeuler-module/module”
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8
+72d6f07f60c88b42e7e9857d7b12a9533693d58c6e18619b8d9140646effcb81  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+PASS: build completed. Loading is a separate step.

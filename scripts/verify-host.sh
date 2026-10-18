@@ -2,11 +2,13 @@
 set -euo pipefail
 repo=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$repo"
+bash scripts/test-logic.sh
 for script in scripts/*.sh; do
     bash -n "$script"
     echo "Syntax OK: $script"
 done
 python3 -m unittest discover -s tests -p 'test_*.py' -v
+python3 scripts/verify-evidence.py evidence/logs/lifecycle-20261006T033800Z-RYZrtF
 cargo run --offline --manifest-path learning/rust-basics/Cargo.toml
 # This check must reject Ubuntu before attempting any kernel build.
 set +e

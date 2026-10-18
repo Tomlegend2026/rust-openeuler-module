@@ -1,0 +1,83 @@
+HOST LOGIC ONLY: this does not build or load the kernel module.
+Sun Oct 18 11:03:33 UTC 2026
+rustc 1.97.1 (8bab26f4f 2026-07-14)
+c4a87a5327a527b602defb3f0dabaab5ab5317c0be33c16d777193d90e230fe2  /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs
+
+running 6 tests
+test tests::a_single_maximum_value_is_valid ... ok
+test tests::addition_overflow_is_reported ... ok
+test tests::borrowing_does_not_modify_the_input ... ok
+test tests::empty_input_is_rejected ... ok
+test tests::example_has_expected_statistics ... ok
+test tests::repeated_zeroes_are_valid ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+warning: struct `Statistics` is never constructed
+ --> /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs:5:19
+  |
+5 | ...ct Statistics {
+  |       ^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: enum `StatisticsError` is never used
+  --> /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs:13:17
+   |
+13 | ...um Stati...Error {
+   |       ^^^^^...^^^^^
+
+warning: function `summarize` is never used
+  --> /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs:18:15
+   |
+18 | ...fn summarize(va...
+   |       ^^^^^^^^^
+
+warning: 3 warnings emitted
+
+Saved: /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/evidence/logs/host-logic-20261018T110333Z-365.log
+Syntax OK: scripts/build-kernel-vm.sh
+Syntax OK: scripts/build-module.sh
+Syntax OK: scripts/check-env.sh
+Syntax OK: scripts/finish-build-vm.sh
+Syntax OK: scripts/install-build-deps.sh
+Syntax OK: scripts/install-kernel-vm.sh
+Syntax OK: scripts/test-lifecycle.sh
+Syntax OK: scripts/test-logic.sh
+Syntax OK: scripts/test-negative.sh
+Syntax OK: scripts/verify-host.sh
+test_consistent_evidence_passes (test_evidence_audit.EvidenceTests.test_consistent_evidence_passes) ... ok
+test_failed_exit_is_not_success (test_evidence_audit.EvidenceTests.test_failed_exit_is_not_success) ... ok
+test_failed_unload_fails (test_evidence_audit.EvidenceTests.test_failed_unload_fails) ... ok
+test_missing_file_fails (test_evidence_audit.EvidenceTests.test_missing_file_fails) ... ok
+test_missing_round_fails (test_evidence_audit.EvidenceTests.test_missing_round_fails) ... ok
+test_modified_incremental_log_fails (test_evidence_audit.EvidenceTests.test_modified_incremental_log_fails) ... ok
+test_warning_in_new_log_fails (test_evidence_audit.EvidenceTests.test_warning_in_new_log_fails) ... ok
+test_ambiguous_cursor_is_rejected (test_log_extraction.ExtractionTests.test_ambiguous_cursor_is_rejected) ... ok
+test_empty_initial_log (test_log_extraction.ExtractionTests.test_empty_initial_log) ... ok
+test_lost_cursor_is_not_silently_accepted (test_log_extraction.ExtractionTests.test_lost_cursor_is_not_silently_accepted) ... ok
+test_no_new_lines (test_log_extraction.ExtractionTests.test_no_new_lines) ... ok
+test_only_new_lines_are_reported (test_log_extraction.ExtractionTests.test_only_new_lines_are_reported) ... ok
+test_ring_can_lose_older_lines_while_preserving_cursor (test_log_extraction.ExtractionTests.test_ring_can_lose_older_lines_while_preserving_cursor) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.016s
+
+OK
+{
+  "status": "PASS",
+  "rounds": 10,
+  "loads": 10,
+  "unloads": 10,
+  "evidence": "evidence/logs/lifecycle-20261006T033800Z-RYZrtF",
+  "scope": "saved evidence audit, not a new kernel run"
+}
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.31s
+     Running `learning/rust-basics/target/debug/team2-rust-basics`
+User-space ownership demo; no kernel module is loaded.
+Borrowed summary: Statistics { count: 6, sum: 23, min: 1, max: 9 }
+The owner still holds: [3, 1, 4, 1, 5, 9]
+Drop begins: 6 elements; the Vec field is dropped afterwards.
+Scope ended; the dataset and its Vec have been dropped.
+FAIL: This is ubuntu, not openEuler. Host tests are separate.
+Host validation completed; no module loaded.

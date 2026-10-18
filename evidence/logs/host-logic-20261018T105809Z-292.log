@@ -1,0 +1,37 @@
+HOST LOGIC ONLY: this does not build or load the kernel module.
+Sun Oct 18 10:58:09 UTC 2026
+rustc 1.97.1 (8bab26f4f 2026-07-14)
+c4a87a5327a527b602defb3f0dabaab5ab5317c0be33c16d777193d90e230fe2  /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs
+
+running 6 tests
+test tests::a_single_maximum_value_is_valid ... ok
+test tests::borrowing_does_not_modify_the_input ... ok
+test tests::addition_overflow_is_reported ... ok
+test tests::empty_input_is_rejected ... ok
+test tests::example_has_expected_statistics ... ok
+test tests::repeated_zeroes_are_valid ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+warning: struct `Statistics` is never constructed
+ --> /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs:5:19
+  |
+5 | ...ct Statistics {
+  |       ^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: enum `StatisticsError` is never used
+  --> /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs:13:17
+   |
+13 | ...um Stati...Error {
+   |       ^^^^^...^^^^^
+
+warning: function `summarize` is never used
+  --> /mnt/d/desktop/Partial/junior_courses/3.5+1操作系统/20分小组作业+翻转课堂/Rust内核模块项目/module/statistics.rs:18:15
+   |
+18 | ...fn summarize(va...
+   |       ^^^^^^^^^
+
+warning: 3 warnings emitted
+
