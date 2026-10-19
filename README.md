@@ -16,7 +16,7 @@
 | 负向测试 | 重复加载、卸载不存在的模块均按预期拒绝，模块状态正确 |
 | 逻辑与工具测试 | Rust统计逻辑6项、Python辅助工具13项通过 |
 
-上述运行结果来自2026-10-18实测，原始日志位于 `evidence/logs/`，详细记录见 [测试结果](tests/测试结果-20261018.md)。
+2026-10-19通过 Windows PowerShell SSH 完成再次复现，八个阶段全部通过，最终退出码为0，模块已卸载。详见 [本次复现记录与原始日志](tests/复现记录-20261019.md)；此前实测见 [2026-10-18测试结果](tests/测试结果-20261018.md)。
 
 ## 复现指南
 
@@ -50,6 +50,15 @@
 ### 已有配套环境：快捷入口
 
 前提：正在运行x86_64 openEuler Rust实验内核，项目已存在，且`$HOME/os-lab/kernel`是对应的**完整源码及构建目录**，只有普通内核头文件包不够。
+
+也可在 SSH 登录后的 openEuler Bash 中执行交互式完整验证：
+
+```bash
+cd "$HOME/os-lab/rust-openeuler-module"
+bash scripts/reproduce-session.sh
+```
+
+脚本依次检查环境、重新编译模块、运行逻辑测试、演示装卸、运行10轮测试与负向测试、核验日志并检查最终状态。按提示输入 sudo 密码和 Enter；完成时应显示 `REPRODUCTION_PASS` 与 `EXIT_STATUS=0`。每次运行的独立记录保存在 `evidence/logs/reproduction-*`，脚本不会自动上传。
 
 **执行位置：openEuler终端。**
 

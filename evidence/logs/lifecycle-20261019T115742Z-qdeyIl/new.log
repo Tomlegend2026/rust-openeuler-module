@@ -1,0 +1,20 @@
+<6>[  806.970432] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  806.974375] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  806.984454] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  806.987879] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  806.998624] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.002105] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.011222] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.016016] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.025506] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.029401] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.039347] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.043244] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.050873] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.054887] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.065081] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.068926] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.077870] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.081672] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[  807.095291] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[  807.098549] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23

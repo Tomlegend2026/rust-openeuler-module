@@ -1,0 +1,36 @@
+2026年 10月 19日 星期一 11:57:42 UTC
+Linux openeuler-team2 6.6.0-team2-rust+ #1 SMP Tue Oct  6 11:18:00 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8
+72d6f07f60c88b42e7e9857d7b12a9533693d58c6e18619b8d9140646effcb81  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+Project not committed yet.
+Round 1/10: loading
+Round 1/10: unloading
+Round 2/10: loading
+Round 2/10: unloading
+Round 3/10: loading
+Round 3/10: unloading
+Round 4/10: loading
+Round 4/10: unloading
+Round 5/10: loading
+Round 5/10: unloading
+Round 6/10: loading
+Round 6/10: unloading
+Round 7/10: loading
+Round 7/10: unloading
+Round 8/10: loading
+Round 8/10: unloading
+Round 9/10: loading
+Round 9/10: unloading
+Round 10/10: loading
+Round 10/10: unloading
+PASS: 10 lifecycle rounds and expected log counts; no matched warnings.
+This is not proof of absence of all memory leaks. Review new.log as well.
+EXIT_STATUS=0

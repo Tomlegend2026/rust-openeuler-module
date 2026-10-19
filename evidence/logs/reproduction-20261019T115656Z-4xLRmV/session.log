@@ -1,0 +1,245 @@
+
+========== 1/8 检查系统与工具链 ==========
+2026-10-19T11:56:56Z
+team2
+Linux openeuler-team2 6.6.0-team2-rust+ #1 SMP Tue Oct  6 11:18:00 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+NAME="openEuler"
+VERSION="24.03 (LTS)"
+ID="openEuler"
+VERSION_ID="24.03"
+PRETTY_NAME="openEuler 24.03 (LTS)"
+ANSI_COLOR="0;31"
+
+rustc 1.73.0 (cc66ad468 2023-10-03)
+clang version 17.0.6 ( 17.0.6-18.oe2403)
+Target: x86_64-openEuler-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+bindgen 0.65.1
+6e0c18da64fd9919a51f8f2216a371503a5e2763
+Kernel source: 6e0c18da64fd9919a51f8f2216a371503a5e2763
+Build release: 6.6.0-team2-rust+
+Running release: 6.6.0-team2-rust+
+Checking Rust requirements...
+make: 进入目录“/home/team2/os-lab/kernel”
+Rust is available!
+make: 离开目录“/home/team2/os-lab/kernel”
+PASS: source/build prerequisites. This does not prove runtime loadability.
+
+========== 2/8 重新构建模块 ==========
+
+将清理本项目的模块构建产物并重新编译，不重建整个内核。 [按 Enter 继续] make: 进入目录“/home/team2/os-lab/rust-openeuler-module/module”
+make -C "/home/team2/os-lab/kernel" M="/home/team2/os-lab/rust-openeuler-module/module" LLVM=1 clean
+make[1]: 进入目录“/home/team2/os-lab/kernel”
+  CLEAN   /home/team2/os-lab/rust-openeuler-module/module/Module.symvers
+make[1]: 离开目录“/home/team2/os-lab/kernel”
+make: 离开目录“/home/team2/os-lab/rust-openeuler-module/module”
+2026年 10月 19日 星期一 11:57:08 UTC
+Kernel source: 6e0c18da64fd9919a51f8f2216a371503a5e2763
+Build release: 6.6.0-team2-rust+
+Running release: 6.6.0-team2-rust+
+Checking Rust requirements...
+make: 进入目录“/home/team2/os-lab/kernel”
+Rust is available!
+make: 离开目录“/home/team2/os-lab/kernel”
+PASS: source/build prerequisites. This does not prove runtime loadability.
+fa5d20c01f6f5887aa502f81a3ef4600cca2506b7cf7475df591a0d980c523f4  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.rs
+c4a87a5327a527b602defb3f0dabaab5ab5317c0be33c16d777193d90e230fe2  /home/team2/os-lab/rust-openeuler-module/module/statistics.rs
+make: 进入目录“/home/team2/os-lab/rust-openeuler-module/module”
+make -C "/home/team2/os-lab/kernel" M="/home/team2/os-lab/rust-openeuler-module/module" LLVM=1 modules
+make[1]: 进入目录“/home/team2/os-lab/kernel”
+  RUSTC [M] /home/team2/os-lab/rust-openeuler-module/module/rust_team2.o
+  MODPOST /home/team2/os-lab/rust-openeuler-module/module/Module.symvers
+  CC [M]  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.mod.o
+  LD [M]  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+make[1]: 离开目录“/home/team2/os-lab/kernel”
+make: 离开目录“/home/team2/os-lab/rust-openeuler-module/module”
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8
+72d6f07f60c88b42e7e9857d7b12a9533693d58c6e18619b8d9140646effcb81  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+PASS: build completed. Loading is a separate step.
+Saved: /home/team2/os-lab/rust-openeuler-module/evidence/logs/build-20261019T115708Z-2379.log
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8
+
+========== 3/8 Rust逻辑、学习示例与Python工具测试 ==========
+HOST LOGIC ONLY: this does not build or load the kernel module.
+2026年 10月 19日 星期一 11:57:11 UTC
+rustc 1.73.0 (cc66ad468 2023-10-03)
+c4a87a5327a527b602defb3f0dabaab5ab5317c0be33c16d777193d90e230fe2  /home/team2/os-lab/rust-openeuler-module/module/statistics.rs
+
+running 6 tests
+test tests::a_single_maximum_value_is_valid ... ok
+test tests::empty_input_is_rejected ... ok
+test tests::borrowing_does_not_modify_the_input ... ok
+test tests::addition_overflow_is_reported ... ok
+test tests::example_has_expected_statistics ... ok
+test tests::repeated_zeroes_are_valid ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+warning: variants `EmptyInput` and `SumOverflow` are never constructed
+  --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:14:5
+   |
+13 | pub(crate) enum StatisticsError {
+   |                 --------------- variants in this enum
+14 |     EmptyInput,
+   |     ^^^^^^^^^^
+15 |     SumOverflow,
+   |     ^^^^^^^^^^^
+   |
+   = note: `StatisticsError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `summarize` is never used
+  --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:18:15
+   |
+18 | pub(crate) fn summarize(values: &[u64]) -> Result<Statistics, StatisticsError> {
+   |               ^^^^^^^^^
+
+warning: 2 warnings emitted
+
+Saved: /home/team2/os-lab/rust-openeuler-module/evidence/logs/host-logic-20261019T115711Z-2816.log
+   Compiling team2-rust-basics v0.1.0 (/home/team2/os-lab/rust-openeuler-module/learning/rust-basics)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.66s
+     Running `learning/rust-basics/target/debug/team2-rust-basics`
+User-space ownership demo; no kernel module is loaded.
+Borrowed summary: Statistics { count: 6, sum: 23, min: 1, max: 9 }
+The owner still holds: [3, 1, 4, 1, 5, 9]
+Drop begins: 6 elements; the Vec field is dropped afterwards.
+Scope ended; the dataset and its Vec have been dropped.
+test_consistent_evidence_passes (test_evidence_audit.EvidenceTests.test_consistent_evidence_passes) ... ok
+test_failed_exit_is_not_success (test_evidence_audit.EvidenceTests.test_failed_exit_is_not_success) ... ok
+test_failed_unload_fails (test_evidence_audit.EvidenceTests.test_failed_unload_fails) ... ok
+test_missing_file_fails (test_evidence_audit.EvidenceTests.test_missing_file_fails) ... ok
+test_missing_round_fails (test_evidence_audit.EvidenceTests.test_missing_round_fails) ... ok
+test_modified_incremental_log_fails (test_evidence_audit.EvidenceTests.test_modified_incremental_log_fails) ... ok
+test_warning_in_new_log_fails (test_evidence_audit.EvidenceTests.test_warning_in_new_log_fails) ... ok
+test_ambiguous_cursor_is_rejected (test_log_extraction.ExtractionTests.test_ambiguous_cursor_is_rejected) ... ok
+test_empty_initial_log (test_log_extraction.ExtractionTests.test_empty_initial_log) ... ok
+test_lost_cursor_is_not_silently_accepted (test_log_extraction.ExtractionTests.test_lost_cursor_is_not_silently_accepted) ... ok
+test_no_new_lines (test_log_extraction.ExtractionTests.test_no_new_lines) ... ok
+test_only_new_lines_are_reported (test_log_extraction.ExtractionTests.test_only_new_lines_are_reported) ... ok
+test_ring_can_lose_older_lines_while_preserving_cursor (test_log_extraction.ExtractionTests.test_ring_can_lose_older_lines_while_preserving_cursor) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.006s
+
+OK
+
+========== 4/8 单次加载、查看结果、卸载 ==========
+sudo要求密码时，在当前终端输入你的openEuler密码；输入不显示字符。
+
+接下来加载模块，并检查模块列表和统计日志。 [按 Enter 继续] + sudo insmod module/rust_team2.ko
++ lsmod | grep rust_team2
+rust_team2             12288  0
+<6>[  791.189989] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+
+模块现已加载，可在此截图。接下来卸载模块。 [按 Enter 继续] + sudo rmmod rust_team2
+模块列表查询无匹配：模块已卸载。
+<6>[  804.341448] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+PASS: single load/unload demonstration.
+
+========== 5/8 十轮动态装卸 ==========
+
+接下来执行十轮装卸并记录每轮状态。 [按 Enter 继续] Evidence: /home/team2/os-lab/rust-openeuler-module/evidence/logs/lifecycle-20261019T115742Z-qdeyIl
+2026年 10月 19日 星期一 11:57:42 UTC
+Linux openeuler-team2 6.6.0-team2-rust+ #1 SMP Tue Oct  6 11:18:00 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8
+72d6f07f60c88b42e7e9857d7b12a9533693d58c6e18619b8d9140646effcb81  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+Project not committed yet.
+Round 1/10: loading
+Round 1/10: unloading
+Round 2/10: loading
+Round 2/10: unloading
+Round 3/10: loading
+Round 3/10: unloading
+Round 4/10: loading
+Round 4/10: unloading
+Round 5/10: loading
+Round 5/10: unloading
+Round 6/10: loading
+Round 6/10: unloading
+Round 7/10: loading
+Round 7/10: unloading
+Round 8/10: loading
+Round 8/10: unloading
+Round 9/10: loading
+Round 9/10: unloading
+Round 10/10: loading
+Round 10/10: unloading
+PASS: 10 lifecycle rounds and expected log counts; no matched warnings.
+This is not proof of absence of all memory leaks. Review new.log as well.
+EXIT_STATUS=0
+
+========== 6/8 负向用例 ==========
+Evidence: /home/team2/os-lab/rust-openeuler-module/evidence/logs/negative-20261019T115742Z-kJGlgW
+2026年 10月 19日 星期一 11:57:42 UTC
+Linux openeuler-team2 6.6.0-team2-rust+ #1 SMP Tue Oct  6 11:18:00 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8
+72d6f07f60c88b42e7e9857d7b12a9533693d58c6e18619b8d9140646effcb81  /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+case	exit_status	state_check
+duplicate_load	1	still_loaded
+absent_unload	1	still_absent
+PASS: duplicate load and absent unload rejected; module state preserved.
+
+========== 7/8 离线核验本次证据 ==========
+{
+  "status": "PASS",
+  "rounds": 10,
+  "loads": 10,
+  "unloads": 10,
+  "evidence": "/home/team2/os-lab/rust-openeuler-module/evidence/logs/lifecycle-20261019T115742Z-qdeyIl",
+  "scope": "saved evidence audit, not a new kernel run"
+}
+Final module state: absent
+
+========== 8/8 展示本次结果 ==========
+step	status
+environment	PASS
+build	PASS
+host-tests	PASS
+manual-demo	PASS
+lifecycle	PASS
+negative	PASS
+audit	PASS
+completed	PASS
+case	exit_status	state_check
+duplicate_load	1	still_loaded
+absent_unload	1	still_absent
+所有原始输出已保存。本脚本不会上传GitHub。
+本次证据可在核验后发布，目录见末尾Evidence路径。
+
+REPRODUCTION_PASS
+Evidence: /home/team2/os-lab/rust-openeuler-module/evidence/logs/reproduction-20261019T115656Z-4xLRmV
+EXIT_STATUS=0

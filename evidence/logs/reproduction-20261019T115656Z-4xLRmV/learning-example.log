@@ -1,0 +1,8 @@
+   Compiling team2-rust-basics v0.1.0 (/home/team2/os-lab/rust-openeuler-module/learning/rust-basics)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.66s
+     Running `learning/rust-basics/target/debug/team2-rust-basics`
+User-space ownership demo; no kernel module is loaded.
+Borrowed summary: Statistics { count: 6, sum: 23, min: 1, max: 9 }
+The owner still holds: [3, 1, 4, 1, 5, 9]
+Drop begins: 6 elements; the Vec field is dropped afterwards.
+Scope ended; the dataset and its Vec have been dropped.

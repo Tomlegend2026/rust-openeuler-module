@@ -1,0 +1,17 @@
+2026-10-19T11:56:56Z
+team2
+Linux openeuler-team2 6.6.0-team2-rust+ #1 SMP Tue Oct  6 11:18:00 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+NAME="openEuler"
+VERSION="24.03 (LTS)"
+ID="openEuler"
+VERSION_ID="24.03"
+PRETTY_NAME="openEuler 24.03 (LTS)"
+ANSI_COLOR="0;31"
+
+rustc 1.73.0 (cc66ad468 2023-10-03)
+clang version 17.0.6 ( 17.0.6-18.oe2403)
+Target: x86_64-openEuler-linux-gnu
+Thread model: posix
+InstalledDir: /usr/bin
+bindgen 0.65.1
+6e0c18da64fd9919a51f8f2216a371503a5e2763

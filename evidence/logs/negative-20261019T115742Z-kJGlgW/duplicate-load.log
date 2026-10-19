@@ -1,0 +1,1 @@
+insmod: ERROR: could not insert module /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko: File exists

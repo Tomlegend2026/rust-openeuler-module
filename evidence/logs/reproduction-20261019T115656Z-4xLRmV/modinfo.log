@@ -1,0 +1,9 @@
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     1B4B5D5ADAD6534900157B8

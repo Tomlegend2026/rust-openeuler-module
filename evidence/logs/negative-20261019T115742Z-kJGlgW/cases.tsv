@@ -1,0 +1,3 @@
+case	exit_status	state_check
+duplicate_load	1	still_loaded
+absent_unload	1	still_absent

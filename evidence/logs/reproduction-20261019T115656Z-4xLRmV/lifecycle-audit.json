@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "rounds": 10,
+  "loads": 10,
+  "unloads": 10,
+  "evidence": "/home/team2/os-lab/rust-openeuler-module/evidence/logs/lifecycle-20261019T115742Z-qdeyIl",
+  "scope": "saved evidence audit, not a new kernel run"
+}

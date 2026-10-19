@@ -1,0 +1,8 @@
+Kernel source: 6e0c18da64fd9919a51f8f2216a371503a5e2763
+Build release: 6.6.0-team2-rust+
+Running release: 6.6.0-team2-rust+
+Checking Rust requirements...
+make: 进入目录“/home/team2/os-lab/kernel”
+Rust is available!
+make: 离开目录“/home/team2/os-lab/kernel”
+PASS: source/build prerequisites. This does not prove runtime loadability.

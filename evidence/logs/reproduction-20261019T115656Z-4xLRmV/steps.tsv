@@ -1,0 +1,9 @@
+step	status
+environment	PASS
+build	PASS
+host-tests	PASS
+manual-demo	PASS
+lifecycle	PASS
+negative	PASS
+audit	PASS
+completed	PASS
