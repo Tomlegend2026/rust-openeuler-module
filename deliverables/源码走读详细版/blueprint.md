@@ -10,15 +10,15 @@
 | 2 | 内容导航 | 汇报结构 | README.md:1-90 |
 | 3 | 一 · 项目与任务 | 实验以统计模块验证动态装卸 | README.md:17-23; module/rust_team2.rs:25-51 |
 | 4 | 二 · 完整实验流程 | 一次装卸贯穿完整实验链路 | scripts/build-module.sh:1-18; scripts/test-lifecycle.sh:60-84 |
-| 5 | 三 · 结构与环境 | 仓库将计算、内核入口和验证工具分开 | module/rust_team2.rs:5-9; learning/rust-basics/src/main.rs:1-26; scripts/verify-evidence.py:1-52 |
+| 5 | 三 · 结构与环境 | 仓库将计算、内核入口和验证工具分开 | module/rust_team2.rs:5-9; module/statistics.rs:18-35; scripts/verify-evidence.py:1-52 |
 | 6 | 三 · 结构与环境 | 模块与运行内核保持同一构建基线 | environment/版本记录.md:9-27; evidence/logs/build-20261018T110037Z-2166.log:1-30 |
-| 7 | 四 · Rust 源码机制 | Rust 学习直接对应模块中的四种机制 | learning/rust-basics/src/main.rs:6-26; module/rust_team2.rs:19-51; module/statistics.rs:18-35 |
+| 7 | 四 · Rust 源码机制 | Rust 源码对应四种核心机制 | module/rust_team2.rs:19-51; module/statistics.rs:18-35 |
 | 8 | 四 · Rust 源码机制 | 所有权转移让数据跨过 init 的作用域 | module/rust_team2.rs:19-39 |
 | 9 | 四 · Rust 源码机制 | 初始化采用可失败分配并返回模块实例 | module/rust_team2.rs:25-39 |
 | 10 | 四 · Rust 源码机制 | 统计函数借用切片并检查累加溢出 | module/statistics.rs:18-35 |
 | 11 | 四 · Rust 源码机制 | 正常数据与算法边界分别验证 | module/statistics.rs:38-82; module/rust_team2.rs:27-33 |
 | 12 | 四 · Rust 源码机制 | 加载成功后才进入可卸载状态 | module/rust_team2.rs:25-51; scripts/test-negative.sh:58-72 |
-| 13 | 四 · Rust 源码机制 | Drop 日志先于 Vec 字段析构 | module/rust_team2.rs:42-51; learning/rust-basics/src/main.rs:10-26 |
+| 13 | 四 · Rust 源码机制 | Drop 日志先于 Vec 字段析构 | module/rust_team2.rs:42-51 |
 | 14 | 五 · 构建及测试证据 | Kbuild 使用目标内核配置生成模块 | module/Kbuild:1-2; module/Makefile:1-10; scripts/build-module.sh:1-18 |
 | 15 | 五 · 构建及测试证据 | 真实构建记录包含 RUSTC、MODPOST 和 LD | evidence/logs/build-20261018T110037Z-2166.log:1-30 |
 | 16 | 五 · 构建及测试证据 | 循环脚本逐轮检查装卸状态 | scripts/test-lifecycle.sh:64-84 |

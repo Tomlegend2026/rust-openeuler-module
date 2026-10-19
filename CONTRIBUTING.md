@@ -28,14 +28,14 @@ git clone https://github.com/Tomlegend2026/rust-openeuler-module.git
 cd rust-openeuler-module
 git switch main
 git pull --ff-only
-git switch -c docs/a-learning-notes
+git switch -c docs/reproduction-notes
 # 编辑自己负责的文件后，按实际路径暂存
-git add learning/A/
-git commit -m "docs: add ownership learning notes"
+git add docs/ tests/
+git commit -m "docs: update reproduction notes"
 git push -u origin docs/a-learning-notes
 ```
 
-然后在 GitHub 发起 PR，按模板填写，由分工表中的验收人评审。分支示例：env/b-openeuler、build/c-kbuild、feat/d-module、test/e-lifecycle、docs/f-report。
+然后在 GitHub 发起 PR，按模板填写并关联对应的复现日志或文档修改。
 
 组长可在 GitHub 设置 main 保护和至少一次评审（取决于账号/仓库支持），这些设置不会由本地模板自动启用。通过评审后合并，其他人回 main 拉取。未提交修改先提交或妥善暂存，发生冲突时找相关维护人共同处理，不强推覆盖他人工作。
 

@@ -424,11 +424,10 @@ python3 scripts/verify-evidence.py evidence/logs/lifecycle-实际日期与随机
 source "$HOME/.cargo/env"
 export RUSTUP_TOOLCHAIN=1.73.0
 bash scripts/test-logic.sh
-cargo run --manifest-path learning/rust-basics/Cargo.toml
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-Rust统计逻辑包含6项测试，Python辅助工具包含13项测试。用户态示例演示所有权、借用和Drop。单独编译纯计算库时，未调用的函数可能产生dead_code警告，需与编译错误区分。
+Rust统计逻辑包含6项测试，Python辅助工具包含13项测试。统计逻辑、模块入口和原理文档分别说明所有权、借用、Result和Drop。单独编译纯计算库时，未调用的函数可能产生dead_code警告，需与编译错误区分。
 
 ### 实验记录内容
 
@@ -461,7 +460,7 @@ Rust统计逻辑包含6项测试，Python辅助工具包含13项测试。用户�
 
 | 内容 | 入口 |
 |---|---|
-| Rust学习及源码 | [基础讲义](learning/Rust基础与练习.md)、[内核入口](module/rust_team2.rs)、[统计逻辑](module/statistics.rs)、[原理讲解](docs/05-模块原理.md) |
+| Rust源码与原理 | [内核入口](module/rust_team2.rs)、[统计逻辑](module/statistics.rs)、[原理讲解](docs/05-模块原理.md) |
 | 本组实际环境 | [版本记录](environment/版本记录.md)、[搭建记录](environment/2026-10-06实际搭建记录.md) |
 | 历史实测结果 | [2026-10-18结果](tests/测试结果-20261018.md) |
 | 正式报告与正文 | [Word报告](deliverables/任务2%20Rust内核模块实验报告.docx)、[报告正文](report/实验报告.md) |

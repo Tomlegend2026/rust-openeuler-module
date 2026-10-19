@@ -96,8 +96,8 @@ s=new('一次装卸贯穿完整实验链路','二 · 完整实验流程',['scrip
 flow(s,['源码','Kbuild','加载','运行状态','卸载'],['Rust 模块及统计函数','生成目标内核的 .ko','insmod 触发 init','实例持有 Vec 与统计值','rmmod 进入 Drop'])
 text(s,'构建成功后，还必须验证运行内核中的模块状态与新增日志',20,850,1880,80,36,color=BLUE,bold=True)
 
-s=new('仓库将计算、内核入口和验证工具分开','三 · 结构与环境',['module/rust_team2.rs:5-9','learning/rust-basics/src/main.rs:1-26','scripts/verify-evidence.py:1-52'], '对应C01分层模板。纯统计计算由用户态示例、Rust测试和内核入口复用。脚本负责构建、状态检查和证据核验，不参与内核内的计算。')
-layers=[('学习与验证','learning/rust-basics     tests/     scripts/'),('内核入口','module/rust_team2.rs     init / Drop'),('纯计算','module/statistics.rs     summarize(&[u64])'),('运行基线','openEuler 24.03 LTS     6.6.0-team2-rust+')]
+s=new('仓库将计算、内核入口和验证工具分开','三 · 结构与环境',['module/rust_team2.rs:5-9','module/statistics.rs:18-35','scripts/verify-evidence.py:1-52'], '对应C01分层模板。纯统计计算、内核入口和证据核验各有明确边界。脚本负责构建、状态检查和证据核验，不参与内核内的计算。')
+layers=[('逻辑与验证','module/statistics.rs     tests/     scripts/'),('内核入口','module/rust_team2.rs     init / Drop'),('纯计算','module/statistics.rs     summarize(&[u64])'),('运行基线','openEuler 24.03 LTS     6.6.0-team2-rust+')]
 for i,(a,b) in enumerate(layers):
     y=270+i*170; box(s,20,y,1880,120,'#F5F5F5'); box(s,20,y,340,120,BLUE)
     text(s,a,45,y+32,285,60,32,color='#FFFFFF',bold=True)
@@ -106,7 +106,7 @@ for i,(a,b) in enumerate(layers):
 s=new('模块与运行内核保持同一构建基线','三 · 结构与环境',['environment/版本记录.md:9-29','evidence/logs/build-20261018T110037Z-2166.log:1-34'], '这里是实际环境记录，不是任意版本通用教程。更换内核需要重新核对Rust API、工具链、配置与vermagic。')
 table(s,['环境项','已记录的实际值'],[['发行版 / 架构','openEuler 24.03 LTS / x86_64'],['运行内核','6.6.0-team2-rust+'],['Rust','1.73.0'],['LLVM / bindgen','17.0.6 / 0.65.1'],['关键内核配置','RUST=y  MODULES=y  MODULE_UNLOAD=y'],['模块 vermagic','6.6.0-team2-rust+ SMP mod_unload']],[500,1380],rowh=88)
 
-s=new('Rust 学习直接对应模块中的四种机制','四 · Rust 源码机制',['learning/rust-basics/src/main.rs:6-26','module/rust_team2.rs:19-51','module/statistics.rs:18-35'], '先在用户态练习，再映射到内核源码。用户态练习使用标准库，内核入口使用kernel提供的类型和API，两者不能混同。')
+s=new('Rust 源码对应四种核心机制','四 · Rust 源码机制',['module/rust_team2.rs:19-51','module/statistics.rs:18-35'], '所有权、借用、Result和Drop直接落在模块源码与统计函数中。统计函数使用切片借用，内核入口负责资源持有和生命周期。')
 table(s,['机制','模块中的落点','作用'],[['所有权','Ok(Self { values, summary })','把数据移入模块实例'],['借用','summarize(&values)','计算期间只读访问数据'],['Result 与 ?','values.try_push(value)?','沿错误路径提前返回'],['Drop','impl Drop for RustTeam2','卸载时进入清理入口']],[320,860,700],rowh=125)
 
 s=new('所有权转移让数据跨过 init 的作用域','四 · Rust 源码机制',['module/rust_team2.rs:19-39'], '局部向量起初由init拥有。Ok(Self...)移动向量到模块对象，不需要clone。统计函数只是借用，调用结束后向量仍由原所有者持有。')
@@ -130,7 +130,7 @@ flow(s,['未加载','初始化中','已加载','清理中','未加载'],['insmod
 text(s,'错误分支',20,780,350,60,32,bold=True,color=BLUE)
 text(s,'已加载时再次加载：请求失败，原模块仍在\n未加载时再次卸载：请求失败，仍保持未加载',20,860,1800,130,32)
 
-s=new('Drop 日志先于 Vec 字段析构','四 · Rust 源码机制',['module/rust_team2.rs:42-52','learning/rust-basics/src/main.rs:10-26'], '重要答辩点：自定义Drop方法执行时字段仍然存在，所以可以读取values.len。方法返回后字段才析构。日志名unload_begin刻意说明它只表示清理开始。')
+s=new('Drop 日志先于 Vec 字段析构','四 · Rust 源码机制',['module/rust_team2.rs:42-52'], '重要答辩点：自定义Drop方法执行时字段仍然存在，所以可以读取values.len。方法返回后字段才析构。日志名unload_begin刻意说明它只表示清理开始。')
 paras(s,[('方法执行期间字段仍在','Drop 可以读取 values.len()\n并打印已保存的统计值'),('方法返回后字段析构','Vec 释放其拥有的缓冲区\n日志本身不证明无泄漏')],w=600,step=280)
 code(s,'module/rust_team2.rs',42,52,size=27)
 
