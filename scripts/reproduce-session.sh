@@ -49,6 +49,7 @@ if [[ ${1:-} == --demo ]]; then
     dmesg --raw > "$run/manual-loaded.log"
     python3 "$repo/scripts/extract-new-log.py" "$run/manual-before.log" "$run/manual-loaded.log" "$run/manual-load-new.log"
     grep -F '[rust_team2] event=loaded count=6 sum=23 min=1 max=9' "$run/manual-load-new.log"
+    grep -F '[rust_team2] event=stats_detail average=3 range=8' "$run/manual-load-new.log"
     pause '模块现已加载，可在此截图。接下来卸载模块。'
     printf '+ sudo rmmod rust_team2\n'
     rmmod rust_team2
@@ -58,7 +59,9 @@ if [[ ${1:-} == --demo ]]; then
     dmesg --raw > "$run/manual-after.log"
     python3 "$repo/scripts/extract-new-log.py" "$run/manual-before.log" "$run/manual-after.log" "$run/manual-new.log"
     [[ $(grep -Fc '[rust_team2] event=loaded count=6 sum=23 min=1 max=9' "$run/manual-new.log") == 1 ]] || die 'Unexpected load count.'
+    [[ $(grep -Fc '[rust_team2] event=stats_detail average=3 range=8' "$run/manual-new.log") == 1 ]] || die 'Unexpected detail count.'
     [[ $(grep -Fc '[rust_team2] event=unload_begin retained=6 sum=23' "$run/manual-new.log") == 1 ]] || die 'Unexpected unload count.'
+    grep -F '[rust_team2] event=stats_detail average=3 range=8' "$run/manual-new.log"
     grep -F '[rust_team2] event=unload_begin retained=6 sum=23' "$run/manual-new.log"
     if grep -Ei 'BUG:|Oops:|WARNING:|kernel panic' "$run/manual-new.log"; then die 'Review new kernel warnings.'; fi
     echo 'PASS: single load/unload demonstration.'
@@ -112,7 +115,7 @@ export RUSTUP_TOOLCHAIN=1.73.0
     bindgen --version
     git -C "$HOME/os-lab/kernel" rev-parse HEAD
 } | tee "$run/environment.log"
-sha256sum module/rust_team2.rs module/statistics.rs scripts/reproduce-session.sh scripts/build-module.sh scripts/test-lifecycle.sh scripts/test-negative.sh > "$run/sources.sha256"
+sha256sum module/rust_team2.rs module/statistics.rs scripts/reproduce-session.sh scripts/build-module.sh scripts/test-lifecycle.sh scripts/test-negative.sh scripts/test-stress.sh scripts/summarize-log.py > "$run/sources.sha256"
 bash scripts/check-env.sh "$HOME/os-lab/kernel" | tee "$run/environment-check.log"
 [[ $(cat "$HOME/os-lab/kernel/include/config/kernel.release") == "$(uname -r)" ]] || die 'Running kernel differs from the build directory.'
 if loaded; then die 'Module already loaded. Inspect and unload your instance before repeating.'; fi
@@ -126,9 +129,8 @@ modinfo "$module" | tee "$run/modinfo.log"
 sha256sum "$module" > "$run/module.sha256"
 passed build
 
-step '3/8 Rust逻辑、学习示例与Python工具测试'
+step '3/8 Rust逻辑与Python工具测试'
 bash scripts/test-logic.sh | tee "$run/rust-tests.log"
-cargo run --offline --manifest-path learning/rust-basics/Cargo.toml 2>&1 | tee "$run/learning-example.log"
 python3 -m unittest discover -s tests -p 'test_*.py' -v 2>&1 | tee "$run/python-tests.log"
 passed host-tests
 

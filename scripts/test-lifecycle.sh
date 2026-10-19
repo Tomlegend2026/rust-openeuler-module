@@ -76,7 +76,9 @@ dmesg --raw > "$run/after.log"
 python3 "$repo/scripts/extract-new-log.py" "$run/before.log" "$run/after.log" "$run/new.log"
 loads=$(grep -Fc '[rust_team2] event=loaded count=6 sum=23 min=1 max=9' "$run/new.log" || true)
 unloads=$(grep -Fc '[rust_team2] event=unload_begin retained=6 sum=23' "$run/new.log" || true)
-[[ $loads == "$rounds" && $unloads == "$rounds" ]] || die "Unexpected lifecycle log counts: $loads/$unloads"
+details=$(grep -Fc '[rust_team2] event=stats_detail average=3 range=8' "$run/new.log" || true)
+[[ $loads == "$rounds" && $unloads == "$rounds" && $details == "$rounds" ]] ||
+    die "Unexpected lifecycle log counts: loaded=$loads details=$details unload=$unloads"
 if grep -Ei 'BUG:|Oops:|WARNING:|kernel panic' "$run/new.log"; then
     die "New kernel warning/error needs manual review (possibly unrelated)."
 fi

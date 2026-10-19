@@ -37,9 +37,13 @@ def audit(run: Path, rounds: int = 10) -> dict:
     unloads = incremental.count("[rust_team2] event=unload_begin retained=6 sum=23")
     if (loads, unloads) != (rounds, rounds):
         raise ValueError(f"unexpected load/unload log counts: {loads}/{unloads}")
+    details = incremental.count("[rust_team2] event=stats_detail average=3 range=8")
+    if details not in (0, rounds):
+        raise ValueError(f"unexpected extended-stat log count: {details}")
     if re.search(r"BUG:|Oops:|WARNING:|kernel panic", incremental, re.I):
         raise ValueError("new warning/error requires manual review")
     return {"status": "PASS", "rounds": rounds, "loads": loads, "unloads": unloads,
+            "extended_stats": details,
             "evidence": str(run), "scope": "saved evidence audit, not a new kernel run"}
 
 

@@ -15,6 +15,7 @@
 模块不提供用户输入接口，无设备节点，不注册定时器或线程。它的教学目标是展示动态装卸、Rust 可失败分配、借用、所有权和清理路径。未来增加接口时再补资源注销、并发和失败回滚测试。
 
 初始化预期日志：`[rust_team2] event=loaded count=6 sum=23 min=1 max=9`。
+扩展统计日志：`[rust_team2] event=stats_detail average=3 range=8`。
 卸载开始预期日志：`[rust_team2] event=unload_begin retained=6 sum=23`。
 
 内核 API 来源与代码许可见 [来源说明](../THIRD_PARTY_NOTICES.md)。

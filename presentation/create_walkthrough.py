@@ -89,7 +89,7 @@ s=new('实验以统计模块验证动态装卸','一 · 项目与任务',['READM
 paras(s,[('输入固定','[3, 1, 4, 1, 5, 9]\n将数据分配并保留在模块实例中'),('输出可复核','计算 count、sum、min、max\n写入内核日志供测试核对'),('资源有归属','加载成功后实例拥有 Vec\n卸载时进入 Drop，随后字段析构')],w=800,step=235)
 text(s,'6',1100,290,500,130,100,bold=True,color=RED)
 text(s,'个输入元素',1105,435,600,60,34)
-text(s,'count=6  sum=23\nmin=1    max=9',1105,565,770,180,46,mono=True)
+text(s,'count=6  sum=23\nmin=1    max=9\naverage=3  range=8',1105,565,770,180,42,mono=True)
 text(s,'来源：固定输入及统计函数，非性能基准',1105,830,770,80,24,color=MUTED)
 
 s=new('一次装卸贯穿完整实验链路','二 · 完整实验流程',['scripts/build-module.sh:1-21','scripts/test-lifecycle.sh:60-90'], '构建与加载是两个独立步骤。init成功后才有已加载实例；卸载入口日志随后进入字段析构。流程图依据C11活动图模板重排为同一泳道。')
@@ -122,7 +122,7 @@ paras(s,[('输入不转移所有权','参数是 &[u64]\n函数不修改输入'),
 code(s,'module/statistics.rs',18,35,size=23)
 
 s=new('正常数据与算法边界分别验证','四 · Rust 源码机制',['module/statistics.rs:38-84','module/rust_team2.rs:27-33'], '固定内核输入只覆盖正常统计路径。空输入和溢出用例在独立计算测试中验证，不能说这些输入在内核装卸测试中实际触发过。')
-table(s,['情形','计算函数行为','验证位置'],[['固定六个整数','count=6 sum=23 min=1 max=9','内核日志与逻辑测试'],['空输入','EmptyInput','逻辑测试'],['[u64::MAX]','合法，sum=u64::MAX','逻辑测试'],['[u64::MAX, 1]','SumOverflow','逻辑测试'],['零值与只读输入','结果正确，原数据保持不变','逻辑测试']],[430,850,600],rowh=103)
+table(s,['情形','计算函数行为','验证位置'],[['固定六个整数','count=6 sum=23 min=1 max=9\naverage=3 range=8','内核日志与逻辑测试'],['空输入','EmptyInput','逻辑测试'],['[u64::MAX]','合法，sum=u64::MAX','逻辑测试'],['[u64::MAX, 1]','SumOverflow','逻辑测试'],['零值与只读输入','结果正确，原数据保持不变','逻辑测试']],[430,850,600],rowh=103)
 text(s,'内核入口将计算错误映射为 EINVAL，默认固定输入不会触发该分支',20,940,1880,60,28,color=BLUE)
 
 s=new('加载成功后才进入可卸载状态','四 · Rust 源码机制',['module/rust_team2.rs:25-52','scripts/test-negative.sh:58-78'], '依据C14状态模板适配模块状态。正常路径从未加载到初始化、已加载、清理，再回到未加载。错误请求保留原来的外部状态。')
@@ -134,7 +134,7 @@ s=new('Drop 日志先于 Vec 字段析构','四 · Rust 源码机制',['module/r
 paras(s,[('方法执行期间字段仍在','Drop 可以读取 values.len()\n并打印已保存的统计值'),('方法返回后字段析构','Vec 释放其拥有的缓冲区\n日志本身不证明无泄漏')],w=600,step=280)
 code(s,'module/rust_team2.rs',42,52,size=27)
 
-s=new('Kbuild 使用目标内核配置生成模块','五 · 构建及测试证据',['module/Kbuild:1-2','module/Makefile:1-10','scripts/build-module.sh:1-21'], 'Cargo用于学习示例。外部内核模块交给目标内核Kbuild，以便使用目标配置、符号和Rust内核支持。这里不把一个普通Rust目标文件当成可加载模块。')
+s=new('Kbuild 使用目标内核配置生成模块','五 · 构建及测试证据',['module/Kbuild:1-2','module/Makefile:1-10','scripts/build-module.sh:1-21'], '主机侧 rustc 只验证可独立测试的统计逻辑。外部内核模块交给目标内核Kbuild，以便使用目标配置、符号和Rust内核支持。这里不把一个普通Rust目标文件当成可加载模块。')
 text(s,'Kbuild',20,270,600,60,36,bold=True,color=BLUE)
 text(s,'obj-m += rust_team2.o',20,360,1800,80,42,mono=True)
 text(s,'Makefile 的构建入口',20,510,1000,60,34,bold=True)

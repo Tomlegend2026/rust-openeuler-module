@@ -35,6 +35,10 @@ impl kernel::Module for RustTeam2 {
             "[rust_team2] event=loaded count={} sum={} min={} max={}\n",
             summary.count, summary.sum, summary.min, summary.max
         );
+        pr_info!(
+            "[rust_team2] event=stats_detail average={} range={}\n",
+            summary.average, summary.range
+        );
         Ok(Self { values, summary })
     }
 }
