@@ -176,8 +176,8 @@ paras(s,[('先核对版本','uname 与 modinfo\n运行内核必须匹配'),('再
 box(s,690,280,1210,650,'#F5F5F5')
 text(s,'uname -r\nmodinfo module/rust_team2.ko\n\nsudo insmod module/rust_team2.ko\nlsmod | grep rust_team2\n\nsudo rmmod rust_team2\nlsmod | grep rust_team2',725,320,1130,570,34,mono=True)
 
-s=new('已验证动态装卸，结论保留明确边界','六 · 演示与能力边界',['tests/测试结果-20261018.md:30-42','module/rust_team2.rs:42-51','docs/08-交付状态与组员待办.md:1-90'], '收尾只总结有证据的结果。有限装卸、固定数据和关键字检查不能证明所有内存或并发缺陷不存在。成员真实贡献、个人学习和独立复现仍由本人补充。')
-paras(s,[('已经验证','目标内核构建成功，10 轮装卸通过\n两个负向请求状态正确，原始证据已保存'),('本次结论范围','固定数据的统计与模块生命周期\n未实现设备 I/O、后台线程或外部输入'),('仍需小组完成','真实成员资料、个人学习及独立复现\n实际演示截图或录屏、彩排与贡献审核')],w=1760,step=230)
+s=new('已验证动态装卸，结论保留明确边界','六 · 演示与能力边界',['tests/测试结果-20261018.md:30-42','module/rust_team2.rs:42-51','docs/08-交付状态与组员待办.md:1-90'], '收尾只总结有证据的结果。有限装卸、固定数据和关键字检查不能证明所有内存或并发缺陷不存在。演示时应同时说明已验证范围和未覆盖范围。')
+paras(s,[('已经验证','目标内核构建成功，10 轮装卸通过\n两个负向请求状态正确，原始证据已保存'),('本次结论范围','固定数据的统计与模块生命周期\n未实现设备 I/O、后台线程或外部输入'),('演示时说明','展示真实版本、命令和日志\n说明测试边界与未覆盖功能')],w=1760,step=230)
 text(s,'源码与日志节选均来自仓库；架构图是机制示意，不代表实际屏幕截图',20,960,1850,50,24,color=MUTED)
 
 assert len(slides)==22
@@ -216,5 +216,5 @@ with (OUT/'traceability.csv').open('w',encoding='utf-8-sig',newline='') as f:
 blue=['# Rust 内核模块源码走读 · 22 页蓝图','', '基线：cc79af3。源码只读引用；build、第三方内核源码和虚拟机镜像不作为功能源码。', '', '适配说明：项目没有图形界面，采用源码、日志节选及机制图，不重绘虚构应用界面。图表参照技能 C01 分层、C11 活动、C14 状态模板，采用原生可编辑对象。', '', '| 页 | 章节 | 标题 | 源码落点 |','|---|---|---|---|']
 for i,s in enumerate(slides,1):blue.append(f'| {i} | {s["chapter"]} | {s["title"]} | {"; ".join(s["sources"])} |')
 (OUT/'blueprint.md').write_text('\n'.join(blue),encoding='utf-8')
-(OUT/'阅读说明.md').write_text('# 源码走读详细版\n\nPowerPoint 为可编辑的 22 页版本，HTML 可离线浏览，无需联网。HTML 使用左右方向键翻页、N 显示备注、F 全屏。\n\n代码及日志来自仓库 cc79af3 与 2026-10-18 保存的实测证据。日志仅作节选排版，不声称为实际终端截图。未虚构系统界面、组员身份或独立复现。traceability.csv 提供逐页源码锚点。原 10 页汇报稿保留。\n',encoding='utf-8')
+(OUT/'阅读说明.md').write_text('# 源码走读详细版\n\nPowerPoint 为可编辑的 22 页版本，HTML 可离线浏览，无需联网。HTML 使用左右方向键翻页、N 显示备注、F 全屏。\n\n代码及日志来自仓库 cc79af3 与 2026-10-18 保存的实测证据。日志仅作节选排版，结论以原始日志和版本信息为准。traceability.csv 提供逐页源码锚点。原 10 页汇报稿保留。\n',encoding='utf-8')
 print('Prepared 22 slides, offline HTML, blueprint and traceability.')

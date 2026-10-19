@@ -6,8 +6,8 @@
 
 | 页 | 章节 | 标题 | 源码落点 |
 |---|---|---|---|
-| 1 | 任务 2 · 源码走读 | Rust 内核模块的实现与动态装卸 | module/rust_team2.rs:11-51; tests/测试结果-20261018.md:1-38 |
-| 2 | 内容导航 | 汇报结构 | README.md:1-71 |
+| 1 | 任务 2 · 源码走读 | Rust 内核模块的实现与动态装卸 | module/rust_team2.rs:11-51; tests/测试结果-20261018.md:1-32 |
+| 2 | 内容导航 | 汇报结构 | README.md:1-90 |
 | 3 | 一 · 项目与任务 | 实验以统计模块验证动态装卸 | README.md:17-23; module/rust_team2.rs:25-51 |
 | 4 | 二 · 完整实验流程 | 一次装卸贯穿完整实验链路 | scripts/build-module.sh:1-18; scripts/test-lifecycle.sh:60-84 |
 | 5 | 三 · 结构与环境 | 仓库将计算、内核入口和验证工具分开 | module/rust_team2.rs:5-9; learning/rust-basics/src/main.rs:1-26; scripts/verify-evidence.py:1-52 |
@@ -27,4 +27,4 @@
 | 19 | 五 · 构建及测试证据 | 不同测试覆盖不同层次的风险 | module/statistics.rs:38-82; tests/测试结果-20261018.md:5-18; tests/test_log_extraction.py:1-35; tests/test_evidence_audit.py:1-60 |
 | 20 | 五 · 构建及测试证据 | 证据核验重新计算日志增量并检查轮次 | scripts/verify-evidence.py:16-49; scripts/extract-new-log.py:1-28; evidence/logs/lifecycle-20261018T112424Z-NBTnuw/rounds.tsv:1-11 |
 | 21 | 六 · 演示与能力边界 | 现场演示按版本、加载、卸载顺序展开 | presentation/汇报与演示.md:35-62; scripts/test-lifecycle.sh:6-23 |
-| 22 | 六 · 演示与能力边界 | 已验证动态装卸，结论保留明确边界 | tests/测试结果-20261018.md:30-38; module/rust_team2.rs:42-51; docs/08-交付状态与组员待办.md:1-68 |
+| 22 | 六 · 演示与能力边界 | 已验证动态装卸，结论保留明确边界 | tests/测试结果-20261018.md:30-32; module/rust_team2.rs:42-51; docs/08-交付状态与组员待办.md:1-61 |
