@@ -1,0 +1,30 @@
+# Rust 内核模块源码走读 · 22 页蓝图
+
+基线：cc79af3。源码只读引用；build、第三方内核源码和虚拟机镜像不作为功能源码。
+
+适配说明：项目没有图形界面，采用源码、日志节选及机制图，不重绘虚构应用界面。图表参照技能 C01 分层、C11 活动、C14 状态模板，采用原生可编辑对象。
+
+| 页 | 章节 | 标题 | 源码落点 |
+|---|---|---|---|
+| 1 | 任务 2 · 源码走读 | Rust 内核模块的实现与动态装卸 | module/rust_team2.rs:11-51; tests/测试结果-20261018.md:1-38 |
+| 2 | 内容导航 | 汇报结构 | README.md:1-71 |
+| 3 | 一 · 项目与任务 | 实验以统计模块验证动态装卸 | README.md:17-23; module/rust_team2.rs:25-51 |
+| 4 | 二 · 完整实验流程 | 一次装卸贯穿完整实验链路 | scripts/build-module.sh:1-18; scripts/test-lifecycle.sh:60-84 |
+| 5 | 三 · 结构与环境 | 仓库将计算、内核入口和验证工具分开 | module/rust_team2.rs:5-9; learning/rust-basics/src/main.rs:1-26; scripts/verify-evidence.py:1-52 |
+| 6 | 三 · 结构与环境 | 模块与运行内核保持同一构建基线 | environment/版本记录.md:9-27; evidence/logs/build-20261018T110037Z-2166.log:1-30 |
+| 7 | 四 · Rust 源码机制 | Rust 学习直接对应模块中的四种机制 | learning/rust-basics/src/main.rs:6-26; module/rust_team2.rs:19-51; module/statistics.rs:18-35 |
+| 8 | 四 · Rust 源码机制 | 所有权转移让数据跨过 init 的作用域 | module/rust_team2.rs:19-39 |
+| 9 | 四 · Rust 源码机制 | 初始化采用可失败分配并返回模块实例 | module/rust_team2.rs:25-39 |
+| 10 | 四 · Rust 源码机制 | 统计函数借用切片并检查累加溢出 | module/statistics.rs:18-35 |
+| 11 | 四 · Rust 源码机制 | 正常数据与算法边界分别验证 | module/statistics.rs:38-82; module/rust_team2.rs:27-33 |
+| 12 | 四 · Rust 源码机制 | 加载成功后才进入可卸载状态 | module/rust_team2.rs:25-51; scripts/test-negative.sh:58-72 |
+| 13 | 四 · Rust 源码机制 | Drop 日志先于 Vec 字段析构 | module/rust_team2.rs:42-51; learning/rust-basics/src/main.rs:10-26 |
+| 14 | 五 · 构建及测试证据 | Kbuild 使用目标内核配置生成模块 | module/Kbuild:1-2; module/Makefile:1-10; scripts/build-module.sh:1-18 |
+| 15 | 五 · 构建及测试证据 | 真实构建记录包含 RUSTC、MODPOST 和 LD | evidence/logs/build-20261018T110037Z-2166.log:1-30 |
+| 16 | 五 · 构建及测试证据 | 循环脚本逐轮检查装卸状态 | scripts/test-lifecycle.sh:64-84 |
+| 17 | 五 · 构建及测试证据 | 十轮实测均完成加载与卸载 | evidence/logs/lifecycle-20261018T112424Z-NBTnuw/rounds.tsv:1-11; evidence/logs/lifecycle-20261018T112424Z-NBTnuw/result.txt:1; evidence/logs/lifecycle-20261018T112424Z-NBTnuw/new.log:1-20 |
+| 18 | 五 · 构建及测试证据 | 负向测试拒绝无效请求并保持模块状态 | evidence/logs/negative-20261018T112425Z-NFqiar/cases.tsv:1-3; scripts/test-negative.sh:58-72 |
+| 19 | 五 · 构建及测试证据 | 不同测试覆盖不同层次的风险 | module/statistics.rs:38-82; tests/测试结果-20261018.md:5-18; tests/test_log_extraction.py:1-35; tests/test_evidence_audit.py:1-60 |
+| 20 | 五 · 构建及测试证据 | 证据核验重新计算日志增量并检查轮次 | scripts/verify-evidence.py:16-49; scripts/extract-new-log.py:1-28; evidence/logs/lifecycle-20261018T112424Z-NBTnuw/rounds.tsv:1-11 |
+| 21 | 六 · 演示与能力边界 | 现场演示按版本、加载、卸载顺序展开 | presentation/汇报与演示.md:35-62; scripts/test-lifecycle.sh:6-23 |
+| 22 | 六 · 演示与能力边界 | 已验证动态装卸，结论保留明确边界 | tests/测试结果-20261018.md:30-38; module/rust_team2.rs:42-51; docs/08-交付状态与组员待办.md:1-68 |
