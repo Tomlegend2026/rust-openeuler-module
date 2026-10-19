@@ -1,16 +1,28 @@
 # Rust 内核模块在 openEuler 中的动态装卸
 
-操作系统课程任务2：学习 Rust，编写可动态加载、卸载的内核模块，并在 openEuler 实测。
+本项目使用 Rust 实现可动态加载与卸载的 Linux 内核模块 `rust_team2`，在 openEuler 中完成构建和运行验证。仓库包含模块源码、构建配置、测试脚本、Rust 学习示例、实验报告与演示材料。
 
-`rust_team2` 加载时保存 `[3, 1, 4, 1, 5, 9]`，计算 `count=6 sum=23 min=1 max=9` 并写入内核日志；卸载时进入 `Drop`，随后模块字段析构。项目没有图形界面，演示通过终端观察模块列表与日志。
+模块加载时创建并保存数据 `[3, 1, 4, 1, 5, 9]`，计算元素数量、总和、最小值和最大值，并写入内核日志。卸载时执行 `Drop`，随后析构模块字段。通过这个实例可以观察初始化、所有权转移、只读借用、错误处理与资源清理的完整过程。
 
-**已完成：**2026-10-18在openEuler重新构建成功，10轮动态装卸、两个负向用例通过。Rust统计逻辑6项、Python工具测试13项通过，原始证据已保存。2026-10-19更新本指南，没有因此重新执行内核实测。
+## 功能与验证结果
 
-**最新交付位于 [`codex/rust-module-delivery-20261018` 分支](https://github.com/Tomlegend2026/rust-openeuler-module/tree/codex/rust-module-delivery-20261018)。** 未合入main前，请切换该分支查看；首次下载使用下面指定分支的clone命令。私有仓库需组长邀请，组员使用自己的账号认证。
+| 项目 | 验证结果 |
+|---|---|
+| 目标系统 | openEuler 24.03 LTS，x86_64 |
+| 实验内核 | `6.6.0-team2-rust+` |
+| 模块构建 | 使用目标内核 Kbuild 生成 `rust_team2.ko` |
+| 统计结果 | `count=6 sum=23 min=1 max=9` |
+| 动态加载与卸载 | 连续10轮通过 |
+| 负向测试 | 重复加载、卸载不存在的模块均按预期拒绝，模块状态正确 |
+| 逻辑与工具测试 | Rust统计逻辑6项、Python辅助工具13项通过 |
 
-本README包含从下载到测试的完整流程。本仓库**不提供现成虚拟机下载**，下载ISO后还要安装openEuler并构建实验内核。
+上述运行结果来自2026-10-18实测，原始日志位于 `evidence/logs/`，详细记录见 [测试结果](tests/测试结果-20261018.md)。
 
-## 先分清命令在哪里执行
+## 复现指南
+
+以下流程覆盖软件下载、虚拟机安装、内核构建、模块装卸与结果核验。已有配套环境可直接使用快捷入口。实验环境使用官方 openEuler 镜像安装，所需软件与镜像均提供官方下载链接。
+
+### 命令执行位置
 
 | 位置 | 做什么 |
 |---|---|
@@ -19,21 +31,21 @@
 | VMware窗口 | 创建和启动虚拟机、安装openEuler、选择启动内核 |
 | **VMware里的openEuler终端** | **安装Linux依赖、获取源码、编译内核和模块、执行装卸与测试** |
 
-除明确标记为Windows PowerShell的代码块外，下面的命令都在**openEuler终端的Bash中执行**。不要在Windows PowerShell中输入dnf、insmod或rmmod。
+除明确标记为Windows PowerShell的代码块外，所有命令均在**openEuler终端的Bash中执行**。Windows用于下载与运行VMware，openEuler用于构建和运行内核模块。
 
-- `$HOME`是当前Linux账号的家目录，不必替换；账号不需要叫team2。自己的账号对应自己的项目目录。
-- sudo要求输入自己的openEuler密码，输入时不显示字符或星号，输完按Enter。不要在仓库中填写密码。
-- 按阶段执行，检查结果后再继续。某条命令失败，先保存错误并处理，不要直接跳到后面的安装或重启。
+- `$HOME`表示当前Linux用户的家目录，文中的命令适用于各自创建的普通管理员账号。
+- `sudo`使用当前openEuler账号的密码。输入时终端不显示字符，完成后按Enter。
+- 按阶段执行并检查输出。命令失败时保留错误信息，解决后继续下一阶段。
 - 通过Windows SSH登录openEuler后也可以操作；登录后的命令在远端Linux执行。
 
-## 选择复现路线
+### 复现路线
 
 | 当前情况 | 阅读顺序 |
 |---|---|
 | 没有openEuler虚拟机 | A下载 → B完整搭建 → C模块装卸 → D测试 |
 | 已有openEuler，但没有Rust实验内核 | B安装依赖及源码 → B构建、安装和启动 → C → D |
-| 已有本组配套实验内核和完整内核构建目录 | 直接C模块构建与装卸，再执行D测试 |
-| 只负责Rust学习、源码讲解或材料审核 | D的逻辑测试、文末学习材料；不必每人重新编译整个内核 |
+| 已有配套实验内核和完整内核构建目录 | 直接C模块构建与装卸，再执行D测试 |
+| 学习Rust机制或阅读源码 | D节的逻辑测试及文末源码、原理文档 |
 
 ### 已有配套环境：快捷入口
 
@@ -59,10 +71,10 @@ bash scripts/build-module.sh "$HOME/os-lab/kernel"
 | 内容 | 官方链接 | 说明 |
 |---|---|---|
 | VMware Workstation Pro | [下载入口](https://support.broadcom.com/group/ecx/productdownloads?freeDownloads=true&subfamily=VMware+Workstation+Pro)、[官方下载说明](https://knowledge.broadcom.com/external/article/368667/download-and-license-vmware-desktop-hyper.html) | 下载Windows安装程序并安装，官方要求Broadcom账号登录；已有可用版本可以继续使用。 |
-| openEuler 24.03 LTS x86_64标准DVD镜像 | [ISO直链，约3.9 GiB](https://repo.openeuler.org/openEuler-24.03-LTS/ISO/x86_64/openEuler-24.03-LTS-x86_64-dvd.iso) | 这是系统安装盘，不是预装虚拟机。不要误选ARM、everything、debug或netinst版。 |
+| openEuler 24.03 LTS x86_64标准DVD镜像 | [ISO直链，约3.9 GiB](https://repo.openeuler.org/openEuler-24.03-LTS/ISO/x86_64/openEuler-24.03-LTS-x86_64-dvd.iso) | 这是系统安装盘，不是预装虚拟机。使用与实验基线一致的x86_64标准DVD镜像。 |
 | ISO校验文件 / 备用目录 | [SHA256](https://repo.openeuler.org/openEuler-24.03-LTS/ISO/x86_64/openEuler-24.03-LTS-x86_64-dvd.iso.sha256sum)、[目录](https://repo.openeuler.org/openEuler-24.03-LTS/ISO/x86_64/) | 直链不可用时从目录选同名文件。 |
 
-本组镜像的SHA256已与官方核对：
+镜像SHA256：
 
 ```text
 786b9683659512e71c978c34aea806a97ed6cacf04e1b0a22017a50eec582cbe
@@ -76,26 +88,26 @@ Get-FileHash -Algorithm SHA256 -LiteralPath 'D:\Downloads\openEuler-24.03-LTS-x8
 
 在VMware新建虚拟机，选择这个ISO，按照向导安装openEuler。开启可联网的网络配置，例如NAT；创建自己的普通管理员用户并记好密码。安装完成后从虚拟硬盘启动，若仍进入安装程序，在VMware设置里断开ISO的“启动时连接”。
 
-本组实测为4 vCPU、6 GiB内存、60 GiB动态磁盘，使用裁剪过的VMware实验内核配置；完整发行版配置需要更多资源，编译耗时和占用因配置而异。具体软件版本及其官方入口另见[下载链接与安装位置](environment/下载链接与安装位置.md)。
+实测虚拟机配置为4 vCPU、6 GiB内存、60 GiB动态磁盘，使用裁剪过的VMware实验内核配置；完整发行版配置需要更多资源，编译耗时和占用因配置而异。具体软件版本及其官方入口另见[下载链接与安装位置](environment/下载链接与安装位置.md)。
 
 ## B. 从零搭建openEuler实验内核
 
 **从这里开始，所有命令均在VMware里的openEuler终端执行。** 若系统启动后只有文字命令行，该界面本身就是终端。
 
-本节按操作系统、依赖、固定源码、Rust、配置、构建、安装的顺序执行。先获取本组仓库，方便后面引用配置与脚本：
+本节按操作系统、依赖、固定源码、Rust、配置、构建、安装的顺序执行。先获取项目源码，后续步骤将使用仓库中的配置与脚本：
 
 ```bash
 sudo dnf install git
 mkdir -p "$HOME/os-lab"
 cd "$HOME/os-lab"
-git clone --branch codex/rust-module-delivery-20261018 https://github.com/Tomlegend2026/rust-openeuler-module.git
+git clone https://github.com/Tomlegend2026/rust-openeuler-module.git
 cd rust-openeuler-module
 pwd
 ```
 
-输出应为`/home/你的用户名/os-lab/rust-openeuler-module`。已有项目时不要重复克隆或覆盖改动。下面配置用到的本组文件均来自这个目录。
+项目路径为`/home/你的用户名/os-lab/rust-openeuler-module`。已有项目可直接进入目录，后续配置与脚本均从该目录引用。
 
-2026-10-06 已在独立 x86_64 openEuler 虚拟机完成构建、启动及模块装卸。下面保留通用搭建流程；本机采用 4 vCPU、6GB 内存、60GiB 动态磁盘，并裁剪可选驱动、关闭调试信息，实际过程和最终配置见 [实测记录](environment/2026-10-06实际搭建记录.md)。若编译完整发行版驱动集合，建议准备更多内存与磁盘。六人可共享版本一致的实验环境，并由第二名成员独立复现。
+实验配置与构建过程见[环境记录](environment/2026-10-06实际搭建记录.md)。以下给出完整搭建步骤；已有系统或已有构建目录时，可跳过对应阶段。
 
 ### 1 安装操作系统
 
@@ -111,7 +123,7 @@ uname -m
 uname -r
 ```
 
-本项目选择 openEuler 自有内核源码构建 Rust 实验内核，不把 Ubuntu/WSL 内核当 openEuler 内核。不要求系统最初自带内核已经支持 Rust。
+本项目基于openEuler内核源码构建启用Rust的实验内核。新安装系统的原始内核可以先用于环境准备，随后切换到实验内核完成装卸验证。
 
 ### 2 安装构建依赖
 
@@ -124,7 +136,7 @@ ld.lld --version
 llvm-config --version
 ```
 
-如使用额外 LLVM 安装，整个内核和外部模块必须使用同一套 PATH、Clang 和 libclang；记录实际版本。内核检查目标会进一步验证兼容性。不要只根据最低版本猜测一定可编译。
+实测LLVM、Clang与LLD版本为17.0.6。内核与外部模块使用同一套工具链；如软件源提供的版本不同，结合版本记录及`rustavailable`检查其兼容性。
 
 ### 3 获取固定的内核源码
 
@@ -140,11 +152,11 @@ git checkout --detach FETCH_HEAD
 git rev-parse HEAD
 ```
 
-首次执行上述初始化；已有仓库不要重复添加 origin。若使用 Gitee 下载来源，须确认获取到同一提交；不能把不同分支源码直接替换后仍声称采用固定版本。内核本身可能很大，不要加入作业仓库。
+固定提交号与`environment/baseline.env`保持一致。已有内核仓库可核对当前提交及origin后继续；使用其他镜像源时也应获取相同提交。内核源码保存在项目仓库之外。
 
 ### 4 配置 Rust 工具链
 
-**执行位置：openEuler终端，普通用户，不加sudo。** 首次安装rustup时使用[官方Linux安装入口](https://rustup.rs/)提供的安装器，并选择本组固定工具链：
+**执行位置：openEuler终端，普通用户，不加sudo。** 首次安装rustup时使用[官方Linux安装入口](https://rustup.rs/)提供的安装器，并选择固定工具链：
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain 1.73.0
@@ -163,13 +175,13 @@ cd "$HOME/os-lab/kernel"
 make LLVM=1 rustavailable
 ```
 
-`RUSTUP_TOOLCHAIN` 应在整个编译会话设置，之后编译外部模块时仍设置；仅在内核目录 rustup override 不一定作用于从作业目录发起的构建。新终端需要重新 export。内核通过自身构建系统启用所需 Rust 特性，不要自行添加 RUSTC_BOOTSTRAP 绕过构建步骤。
+`RUSTUP_TOOLCHAIN=1.73.0`在内核和模块编译会话中保持一致。新终端需要重新加载`$HOME/.cargo/env`并设置该变量。所需Rust构建特性由内核构建系统处理。
 
 如果找不到 libclang，定位实际库并设置 LIBCLANG_PATH（例如通过 llvm-config --libdir 查候选），以实际 `rustavailable` 输出为准。
 
 ### 5 配置实验内核
 
-**与本组原VMware硬件配置匹配时，可选择使用已实测的裁剪配置：**
+**路线一：使用仓库中已验证的VMware实验配置。**
 
 ```bash
 cd "$HOME/os-lab/kernel"
@@ -184,7 +196,7 @@ grep -E '^(CONFIG_RUST|CONFIG_MODULES|CONFIG_MODULE_UNLOAD|CONFIG_LOCALVERSION)=
 
 **需要保留自己系统完整硬件支持时，使用下面的通用配置路线：**
 
-本初稿采用源码目录内构建。复制当前系统配置作为硬件支持基础，保留磁盘、根文件系统和虚拟机驱动；不要用过度裁剪配置导致新内核无法启动。
+该路线采用源码目录内构建，以当前系统配置为基础，保留磁盘、根文件系统和虚拟机驱动。
 
 ```sh
 cd "$HOME/os-lab/kernel"
@@ -195,17 +207,17 @@ make LLVM=1 olddefconfig
 make LLVM=1 menuconfig
 ```
 
-以上是不改变宿主系统的实验内核配置调整。菜单中再次确认 Rust support 和模块支持；若 RUST 消失，先查依赖，不能当作已经启用。固定源码中的 Rust 依赖 `!MODVERSIONS` 等条件，因此不能照搬最新上游文档的兼容结论。
+在菜单中确认Rust support和模块支持。固定源码中的Rust依赖`!MODVERSIONS`等条件；若RUST未能启用，先检查该版本的Kconfig依赖和工具链。
 
 ```sh
 grep -E '^(CONFIG_RUST|CONFIG_MODULES|CONFIG_MODULE_UNLOAD|CONFIG_LOCALVERSION)=' .config
 ```
 
-前三项必须为 y。若 /boot 没有配置文件，检查 `/proc/config.gz` 或安装镜像对应的内核配置来源，不能编造配置。如构建报发行版证书文件缺失，应处理实际证书路径并遵守当前签名策略；本流程不提供默认关闭签名的捷径。
+前三项应为y。若/boot没有配置文件，可检查`/proc/config.gz`或发行版提供的配置文件。若构建提示附加证书文件缺失，按实际配置处理证书路径，模块签名与信任要求以当前环境为准。
 
 ### 6 完整编译、安装并启动
 
-**执行位置：openEuler终端。** 内核编译比本组模块编译耗时更长。先构建，不要直接安装：
+**执行位置：openEuler终端。** 先完成内核编译，成功后再进行安装：
 
 ```bash
 source "$HOME/.cargo/env"
@@ -222,9 +234,9 @@ make -s LLVM=1 kernelrelease
 ls -lh arch/x86/boot/bzImage System.map Module.symvers rust/kernel.o rust/libmacros.so
 ```
 
-本组实测版本是`6.6.0-team2-rust+`，末尾`+`也是版本的一部分。以你本次构建输出为准，后面模块必须与实际运行版本匹配。普通头文件包或仅运行modules_prepare不能替代完整Rust内核构建。
+实测版本是`6.6.0-team2-rust+`，末尾`+`也是版本的一部分。以你本次构建输出为准，后面模块必须与实际运行版本匹配。普通头文件包或仅运行modules_prepare不能替代完整Rust内核构建。
 
-首次安装前在VMware保存快照，保留原内核作为回退。下面命令使用当前用户的路径。**不要直接套用原机器维护脚本`install-kernel-vm.sh`，它写死了team2账号路径和原构建状态文件。** 已装好配套内核的成员跳过安装。
+首次安装前在VMware保存快照，保留原内核作为回退。下面的安装命令使用当前用户的路径；已有配套实验内核时可直接进入C节。
 
 下面整个代码块在openEuler终端执行，会安装实验内核并新增启动项；任一步失败会停止这个代码块。若提示目标版本已存在，先检查已有安装，不要覆盖：
 
@@ -271,15 +283,15 @@ cat "$HOME/os-lab/kernel/include/config/kernel.release"
 
 两个输出必须相同。仅完成编译、却没有启动实验内核，不算具备模块装卸条件。
 
-### 7 转到作业仓库
+### 7 回到项目目录
 
-回到B节开始时已克隆的小组仓库，不要重复clone：
+回到B节开始时已克隆的项目目录：
 
 ```bash
 cd "$HOME/os-lab/rust-openeuler-module"
 ```
 
-继续下面的C节构建和装卸本组模块。项目应位于Linux文件系统的无空格路径，不能将Windows的`D:\...`作为虚拟机内的项目路径。
+继续C节构建和装卸模块。项目路径应位于openEuler文件系统中，并避免使用空格。
 
 将所有实际版本填入 [版本记录](environment/版本记录.md)，保存安装/构建日志。先完成一次人工装卸再跑循环，遇到失败保存原始错误后排障。
 
@@ -302,9 +314,9 @@ export RUSTUP_TOOLCHAIN=1.73.0
 bash scripts/check-env.sh "$HOME/os-lab/kernel"
 ```
 
-脚本核对系统、架构、源码提交、关键配置、Rust/bindgen 版本和完整构建产物，再运行内核 Rust 可用性检查。任何失败都应先处理。此检查通过仅代表构建前提满足，不代表模块已经加载成功。
+脚本核对系统、架构、源码提交、关键配置、工具链及完整构建产物，并运行Rust可用性检查。检查通过后进行模块构建与运行验证。
 
-### 2 编译本组模块
+### 2 编译模块
 
 ```sh
 bash scripts/build-module.sh "$HOME/os-lab/kernel"
@@ -315,7 +327,7 @@ modinfo module/rust_team2.ko
 
 ### 3 人工验证一次
 
-先在openEuler终端执行`lsmod | grep '^rust_team2 '`，无输出表示尚未加载；若有输出，先确认实例归属，不要并发操作别人的测试。
+先在openEuler终端执行`lsmod | grep '^rust_team2 '`，无输出表示尚未加载。共享环境中，每次只运行一组装卸测试。
 
 开两个openEuler终端，第二个也先执行`cd "$HOME/os-lab/rust-openeuler-module"`。第一个观察实时日志（按Ctrl+C停止观察，不会因此卸载模块）：
 
@@ -332,7 +344,7 @@ sudo rmmod rust_team2
 lsmod | grep '^rust_team2 '
 ```
 
-最后一个 grep 没有输出且返回1是正常结果。日志应包含以下片段（仅预期，不是实测记录）：
+最后一个 grep 没有输出且返回1是正常结果。输出示例：
 
 ```text
 [rust_team2] event=loaded count=6 sum=23 min=1 max=9
@@ -363,9 +375,9 @@ sudo bash scripts/test-lifecycle.sh module/rust_team2.ko 10
 sudo bash scripts/test-negative.sh module/rust_team2.ko
 ```
 
-重复加载应返回非零且仍为`still_loaded`；卸载不存在模块应返回非零且仍为`still_absent`。本组已记录的两个用例退出码均为1，这是预期行为。测试脚本整体应显示PASS，并在新建的`evidence/logs/negative-.../result.txt`记录`EXIT_STATUS=0`。
+重复加载应返回非零且仍为`still_loaded`；卸载不存在模块应返回非零且仍为`still_absent`。实测两个用例的退出码均为1，这是预期行为。测试脚本整体应显示PASS，并在新建的`evidence/logs/negative-.../result.txt`记录`EXIT_STATUS=0`。
 
-不要删除用例的错误输出，也不要把预期非零当成整个实验失败。
+用例的非零返回值属于测试结果，脚本整体的PASS与EXIT_STATUS=0表示验证通过。
 
 ### 6 复现与排障
 
@@ -381,11 +393,11 @@ sudo bash scripts/test-negative.sh module/rust_team2.ko
 | 签名校验失败 | 按当前启动和模块签名策略签名，不默认关闭保护 |
 | 卸载失败 | 保留错误与模块状态，检查引用，禁止强制卸载 |
 
-非作者按照本页独立操作，把真实结果填入 tests/测试结果模板.md。若需要修改源码基线，统一更新 baseline.env、source-verification.json、配置、构建说明和测试记录；不能只绕过检查。
+版本变更时，同步更新baseline.env、source-verification.json、构建配置及相应测试记录，保持源码、环境与验证结果一致。
 
-## D. 核验、截图和独立复现记录
+## D. 结果核验与实验记录
 
-**执行位置：openEuler终端，项目根目录。** 自动测试会打印`Evidence:`路径，每次生成新目录。保存本次实际目录，不要将仓库已有的历史日志当成自己的结果。
+**执行位置：openEuler终端，项目根目录。** 自动测试会打印`Evidence:`路径，每次运行生成独立目录，便于区分不同时间和环境的结果。
 
 正向目录中应有commands.log、rounds.tsv、before.log、after.log、new.log、final.log和result.txt。离线复核时，先将下面示例路径换成**本次测试实际生成的目录**：
 
@@ -407,41 +419,39 @@ cargo run --manifest-path learning/rust-basics/Cargo.toml
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-Rust统计逻辑当前为6项测试，Python辅助工具为13项。用户态示例演示所有权、借用和Drop。独立编译纯计算库可能出现dead_code警告，因为该步骤未调用其中函数；这不代表内核编译失败，也不要通过关闭检查掩盖真实错误。
+Rust统计逻辑包含6项测试，Python辅助工具包含13项测试。用户态示例演示所有权、借用和Drop。单独编译纯计算库时，未调用的函数可能产生dead_code警告，需与编译错误区分。
 
-### 每位复现者交什么
+### 实验记录内容
 
 | 材料 | 应包含什么 |
 |---|---|
-| 操作记录 | 本人、日期、系统版本、运行内核、Rust与LLVM版本、源码提交 |
+| 环境记录 | 日期、系统版本、运行内核、Rust与LLVM版本、源码提交 |
 | 构建结果 | 本次构建日志、modinfo、模块SHA256 |
 | 实际运行 | 本次10轮及负向测试新生成的证据目录 |
 | 演示素材 | 模块加载、统计日志、卸载后消失的真实截图或连续录屏 |
-| 问题记录 | 完整错误和解决过程，不能只写“成功” |
+| 排障记录 | 错误信息、定位过程和解决方法 |
 
 示例日志只表示预期结果。`dmesg`会保留历史内容，旧日志不能单独证明本次成功；应结合命令退出码、模块列表和自动提取的新日志判断。
 
 模块中的`unload_begin`先于Vec字段析构输出；有限轮次和关键字检查不能排除所有内存泄漏、并发或内核缺陷。本模块没有设备I/O、后台线程或外部输入，结论只覆盖已实现的统计和生命周期。
 
-### 初学者常见问题
+### 常见问题
 
 | 现象 | 处理方向 |
 |---|---|
 | Windows不认识dnf/insmod | 换到VMware里的openEuler终端 |
 | sudo输入密码没有星号 | 正常，直接输入并按Enter |
-| GitHub提示仓库不存在 | 确认已接受组长邀请，用自己的账号认证 |
+| GitHub提示仓库不存在 | 确认账号具有该私有仓库的访问权限 |
 | 包不存在或下载失败 | 先检查虚拟机联网和对应发行版软件源，保存完整错误 |
 | 刚重启后找不到rustc | 重新source ~/.cargo/env并设置RUSTUP_TOOLCHAIN |
 | lsmod查不到模块 | 加载前、卸载后正常；加载后查不到则需排障 |
 | 循环测试提示模块已加载 | 确认是否为自己手工测试留下的实例，正常卸载后再跑 |
 | 新内核无法启动 | 在VMware启动菜单选原内核，或回到安装前快照检查驱动和initramfs |
 
-## E. 项目材料与小组收尾
+## E. 项目文档与演示材料
 
 | 内容 | 入口 |
 |---|---|
-| 已完成内容和组员待办 | [交付状态](docs/08-交付状态与组员待办.md) |
-| 六人建议分工和接手 | [分工](docs/01-任务分工.md)、[接手指南](docs/07-组员接手指南.md) |
 | Rust学习及源码 | [基础讲义](learning/Rust基础与练习.md)、[内核入口](module/rust_team2.rs)、[统计逻辑](module/statistics.rs)、[原理讲解](docs/05-模块原理.md) |
 | 本组实际环境 | [版本记录](environment/版本记录.md)、[搭建记录](environment/2026-10-06实际搭建记录.md) |
 | 历史实测结果 | [2026-10-18结果](tests/测试结果-20261018.md) |
@@ -449,7 +459,5 @@ Rust统计逻辑当前为6项测试，Python辅助工具为13项。用户态示�
 | 22页源码走读详细版 | [PowerPoint](deliverables/源码走读详细版/任务2%20Rust内核模块-源码走读详细版.pptx)、[离线HTML](deliverables/源码走读详细版/Rust内核模块-源码走读.html) |
 | 现场汇报 | [讲稿和演示顺序](presentation/汇报与演示.md) |
 | 协作和来源 | [GitHub协作](CONTRIBUTING.md)、[来源与许可](THIRD_PARTY_NOTICES.md) |
-
-共同技术基线已完成，组员仍需如实填写姓名学号、个人学习和贡献，完成独立复现、真实演示素材、报告审核和计时彩排。A～F只是角色占位。
 
 在项目根目录执行`python3 scripts/package-submission.py`，可生成`build/rust-openeuler-module-submission.zip`，包含源码、文档和保存的证据，不包含虚拟机及编译产物。
