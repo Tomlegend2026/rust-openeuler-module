@@ -357,6 +357,7 @@ lsmod | grep '^rust_team2 '
 
 ```text
 [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+[rust_team2] event=stats_detail average=3 range=8
 [rust_team2] event=unload_begin retained=6 sum=23
 ```
 
@@ -375,6 +376,18 @@ sudo bash scripts/test-lifecycle.sh module/rust_team2.ko 10
 每次生成单独目录：commands.log（命令过程）、rounds.tsv（成功轮次）、before/after/new/final.log（日志快照与本次增量）、result.txt（最终返回码）。发生中途失败时某些后续文件可能尚未生成，不能把缺失文件当成测试通过。
 
 脚本对新增日志检查预期加载与卸载次数，并查找 BUG/Oops/WARNING/kernel panic 关键词。环形日志覆盖导致边界不明确时直接报告失败。通过后仍需人工看 new.log；有限循环和关键词筛查不是完整的内存泄漏检测。
+
+需要更大样本时，可运行100轮压力测试；它会在生命周期测试后自动执行负向用例：
+
+```sh
+sudo bash scripts/test-stress.sh module/rust_team2.ko 100
+```
+
+保存的日志可以用汇总工具读取，不会重新加载模块：
+
+```sh
+python3 scripts/summarize-log.py evidence/logs/lifecycle-实际目录
+```
 
 ### 5 自动负向测试
 
