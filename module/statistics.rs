@@ -24,6 +24,8 @@ pub(crate) fn summarize(values: &[u64]) -> Result<Statistics, StatisticsError> {
         sum: 0,
         min: first,
         max: first,
+        average: 0,
+        range: 0,
     };
     for &value in values {
         result.sum = result

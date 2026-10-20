@@ -1,0 +1,300 @@
+<6>[   92.440232] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.440504] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.444364] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.453338] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.453605] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.458287] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.467157] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.467428] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.471759] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.486871] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.487114] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.490716] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.499422] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.499677] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.503859] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.513965] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.514279] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.519032] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.528472] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.528787] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.532599] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.542684] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.542918] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.547365] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.557512] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.557883] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.562833] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.570951] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.571158] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.574692] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.583844] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.584074] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.588832] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.598614] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.598940] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.602748] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.611982] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.612209] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.616130] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.625299] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.625584] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.629762] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.637277] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.637520] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.641450] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.649609] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.649907] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.654497] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.663472] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.663709] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.667848] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.678257] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.678508] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.682675] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.691950] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.692213] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.697003] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.707914] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.708172] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.712280] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.721336] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.721595] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.725770] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.735252] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.735537] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.740338] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.749787] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.750007] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.753898] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.762692] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.762994] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.766854] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.777241] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.777521] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.782188] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.791376] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.791623] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.796534] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.805666] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.805911] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.809769] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.818222] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.818499] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.823643] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.833548] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.833839] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.839256] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.848382] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.848593] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.852833] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.862256] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.862660] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.866917] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.877950] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.878202] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.882013] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.892494] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.892725] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.897282] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.906841] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.907103] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.911116] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.920428] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.920733] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.925455] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.934498] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.934712] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.940096] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.952202] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.952795] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.956767] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.969038] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.969317] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.973070] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.983415] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.983651] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.987610] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.997006] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.997215] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.000787] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.009588] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.009804] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.014270] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.025405] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.025644] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.030189] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.039699] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.039953] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.044111] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.054116] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.054388] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.058356] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.077817] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.078096] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.083484] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.095557] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.095874] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.099894] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.111848] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.112323] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.116705] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.125463] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.125700] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.130114] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.139436] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.139667] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.143972] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.153009] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.153386] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.157422] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.166562] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.166890] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.171207] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.180546] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.180875] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.184932] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.195053] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.195336] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.199546] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.210102] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.210371] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.215025] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.225889] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.226270] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.230257] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.240447] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.240803] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.245195] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.256734] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.257070] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.261820] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.271052] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.271287] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.275151] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.283591] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.283807] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.289180] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.299083] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.299319] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.303572] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.313404] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.313662] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.317689] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.329267] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.329504] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.333802] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.341433] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.341739] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.345592] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.358191] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.358421] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.362932] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.371721] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.372060] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.376197] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.386593] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.386845] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.392037] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.404184] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.404441] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.409040] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.417948] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.418166] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.422246] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.431354] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.431664] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.435398] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.443471] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.443707] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.448115] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.456013] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.456236] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.460344] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.469510] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.469798] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.474183] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.489566] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.489905] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.494069] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.502511] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.502781] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.507400] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.516053] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.516325] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.520205] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.530089] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.530328] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.534717] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.542321] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.542539] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.547385] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.556232] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.556460] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.560202] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.571712] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.571950] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.575766] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.585613] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.586097] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.590555] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.603617] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.603929] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.609231] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.625680] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.626051] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.630455] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.646385] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.646745] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.651271] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.666020] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.666281] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.670228] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.680497] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.680828] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.684721] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.699933] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.700191] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.704891] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.721378] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.721818] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.726344] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.739097] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.739370] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.745267] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.760080] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.760357] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.765038] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.777805] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.778105] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.782413] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.797459] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.797835] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.802462] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.817036] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.817295] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.822511] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.832052] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.832307] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.836287] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.845806] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.846093] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.850128] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.858500] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.858762] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.862937] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.876047] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.876323] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.880586] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.890947] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.891205] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.896041] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.916312] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.916584] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.920924] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.930927] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.931174] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.934962] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   93.944468] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   93.944857] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   93.949417] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23

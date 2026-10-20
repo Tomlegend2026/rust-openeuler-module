@@ -1,0 +1,36 @@
+HOST LOGIC ONLY: this does not build or load the kernel module.
+2026年 10月 20日 星期二 01:16:26 UTC
+rustc 1.73.0 (cc66ad468 2023-10-03)
+6c8f8edb7db030c3bf0ae9ee592854cb05cb436fd54e10882c06260a40641803  /home/team2/os-lab/rust-openeuler-module/module/statistics.rs
+
+running 6 tests
+test tests::a_single_maximum_value_is_valid ... ok
+test tests::addition_overflow_is_reported ... ok
+test tests::example_has_expected_statistics ... ok
+test tests::borrowing_does_not_modify_the_input ... ok
+test tests::empty_input_is_rejected ... ok
+test tests::repeated_zeroes_are_valid ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+warning: variants `EmptyInput` and `SumOverflow` are never constructed
+  --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:16:5
+   |
+15 | pub(crate) enum StatisticsError {
+   |                 --------------- variants in this enum
+16 |     EmptyInput,
+   |     ^^^^^^^^^^
+17 |     SumOverflow,
+   |     ^^^^^^^^^^^
+   |
+   = note: `StatisticsError` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `summarize` is never used
+  --> /home/team2/os-lab/rust-openeuler-module/module/statistics.rs:20:15
+   |
+20 | pub(crate) fn summarize(values: &[u64]) -> Result<Statistics, StatisticsError> {
+   |               ^^^^^^^^^
+
+warning: 2 warnings emitted
+

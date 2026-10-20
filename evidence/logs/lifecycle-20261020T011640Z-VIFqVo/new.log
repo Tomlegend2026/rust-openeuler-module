@@ -1,0 +1,31 @@
+<4>[   92.200129] rust_team2: loading out-of-tree module taints kernel.
+<6>[   92.202436] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.202520] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.207295] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.216991] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.217195] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.221073] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.230175] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.230457] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.236114] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.249067] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.249400] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.255262] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.265637] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.265883] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.270332] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.279296] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.279579] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.284555] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.295141] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.295454] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.300199] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.309292] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.309589] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.313570] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.323211] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.323478] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.327581] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23
+<6>[   92.337533] rust_team2: [rust_team2] event=loaded count=6 sum=23 min=1 max=9
+<6>[   92.337882] rust_team2: [rust_team2] event=stats_detail average=3 range=8
+<6>[   92.341994] rust_team2: [rust_team2] event=unload_begin retained=6 sum=23

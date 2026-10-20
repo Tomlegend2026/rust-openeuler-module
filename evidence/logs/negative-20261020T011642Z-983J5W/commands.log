@@ -1,0 +1,16 @@
+2026年 10月 20日 星期二 01:16:42 UTC
+Linux openeuler-team2 6.6.0-team2-rust+ #1 SMP Tue Oct  6 11:18:00 CST 2026 x86_64 x86_64 x86_64 GNU/Linux
+filename:       /home/team2/os-lab/rust-openeuler-module/module/rust_team2.ko
+author:         OS Course Task 2 Team
+description:    Rust statistics and module lifecycle experiment
+license:        GPL
+vermagic:       6.6.0-team2-rust+ SMP mod_unload 
+name:           rust_team2
+retpoline:      Y
+depends:        
+srcversion:     CD47B38F4DEDB5AFF3B9106
+ac95fd13bb20c0e9fd2eccd2bd7a32fc7d8d5c5db8ec92fcd975f407e81319b1  module/rust_team2.ko
+case	exit_status	state_check
+duplicate_load	1	still_loaded
+absent_unload	1	still_absent
+PASS: duplicate load and absent unload rejected; module state preserved.
